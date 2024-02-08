@@ -4,36 +4,15 @@ using UnityEngine;
 
 public class TopDownMovement : MonoBehaviour
 {
-    private TopDownCharacterController _controller;
+    public float speed = 5f;
 
-    private Vector2 _movementDirection = Vector2.zero;
-    private Rigidbody2D _rigidbody;
-
-    private void Awake()
+    private void Update()
     {
-        _controller = GetComponent<TopDownCharacterController>();
-        _rigidbody = GetComponent<Rigidbody2D>();
-    }
+        float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
-    private void Start()
-    {
-        _controller.OnMoveEvent += Move;
-    }
+        transform.position += (new Vector3(x, y)).normalized * Time.deltaTime * speed;
 
-    private void FixedUpdate()
-    {
-        ApplyMovment(_movementDirection);
-    }
-
-    private void Move(Vector2 direction)
-    {
-        _movementDirection = direction;
-    }
-
-    private void ApplyMovment(Vector2 direction)
-    {
-        direction *= 5;
-
-        _rigidbody.velocity = direction;
+        Vector3 mousePos = Input.mousePosition;
     }
 }
