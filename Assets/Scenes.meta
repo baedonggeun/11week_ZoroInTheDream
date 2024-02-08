@@ -1,6 +1,10 @@
 fileFormatVersion: 2
-guid: 131a6b21c8605f84396be9f6751fb6e3
+<<<<<<<< HEAD:Assets/LeeHoYeol/Scenes/ItemScene.unity.meta
+guid: 2162b30085768b34a869796e41f4c482
+========
+guid: 0efbe1061a6f2f54f84f0b67f29cd4f1
 folderAsset: yes
+>>>>>>>> branch_Develop:Assets/Scenes.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

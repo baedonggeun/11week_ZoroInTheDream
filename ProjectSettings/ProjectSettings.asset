@@ -4,7 +4,7 @@
 PlayerSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 26
-  productGUID: ddfd029fa3ee77b4494dd49963a8e09f
+  productGUID: 916e8ce69e8129f4da156c3776c90513
   AndroidProfiler: 0
   AndroidFilterTouchesWhenObscured: 0
   AndroidEnableSustainedPerformanceMode: 0
@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 60
   companyName: DefaultCompany
-  productName: 11week_ZoroInTheDream
+  productName: 2D_Roguelike
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0.13725491, g: 0.12156863, b: 0.1254902, a: 1}
@@ -710,14 +710,14 @@ PlayerSettings:
   apiCompatibilityLevelPerPlatform: {}
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
-  metroPackageName: 11week_ZoroInTheDream
+  metroPackageName: 2D_Roguelike
   metroPackageVersion: 
   metroCertificatePath: 
   metroCertificatePassword: 
   metroCertificateSubject: 
   metroCertificateIssuer: 
   metroCertificateNotAfter: 0000000000000000
-  metroApplicationDescription: 11week_ZoroInTheDream
+  metroApplicationDescription: 2D_Roguelike
   wsaImages: {}
   metroTileShortName: 
   metroTileShowName: 0
@@ -785,11 +785,11 @@ PlayerSettings:
   apiCompatibilityLevel: 6
   activeInputHandler: 0
   windowsGamepadBackendHint: 0
-  cloudProjectId: f1a61877-1421-4067-823d-cdd54c459b98
+  cloudProjectId: c9221659-5fa1-415c-87c5-8e7e053788a7
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 11week_ZoroInTheDream
-  organizationId: hispanie3
+  projectName: 2D_Roguelike
+  organizationId: lhys
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   hmiLoadingImage: {fileID: 0}
