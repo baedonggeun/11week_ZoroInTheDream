@@ -19,7 +19,7 @@ public class ItemSlot : MonoBehaviour
 
     public List<Item> itemSlot = new List<Item>();
 
-    private int slotCount = 5;
+    private int slotCount;
 
     public void AddItemSlot(Item _item)
     {
@@ -27,6 +27,7 @@ public class ItemSlot : MonoBehaviour
         {
             itemSlot.Add(_item);
             Debug.Log("아이템을 장착했습니다.");
+            slotCount = itemSlot.Count;
         }
         Debug.Log("아이템 슬롯이 부족합니다.");
     }

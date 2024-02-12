@@ -25,7 +25,7 @@ public class ItemDatabase : MonoBehaviour
     {
         //test용 shose(이속증가)
         GameObject item = Instantiate(itemprefeb);
-        item.transform.parent = player.transform;
+        item.transform.SetParent(player.transform);
         item.GetComponent<normalItem>().SetItem(itemDB[2]);//shose
     }
 
