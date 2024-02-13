@@ -24,7 +24,7 @@ public class TopDownDash : MonoBehaviour
 
             Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
             rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-            Debug.Log("´­¸²");
+            Debug.Log("Dash");
         }
 
         if (isDashing)

@@ -9,6 +9,7 @@ public class TopDownShooting : MonoBehaviour
 
     [SerializeField] private Transform projectileSpawnPosition;
     private Vector2 _aimDirection = Vector2.right;
+
     public GameObject testPrefab;
 
     private void Awake()
@@ -35,6 +36,6 @@ public class TopDownShooting : MonoBehaviour
 
     private void CreateProjectile()
     {
-        Instantiate(testPrefab, projectileSpawnPosition);
+        Instantiate(testPrefab, projectileSpawnPosition.position, Quaternion.identity);
     }
 }
