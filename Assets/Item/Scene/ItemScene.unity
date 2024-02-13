@@ -419,7 +419,7 @@ MonoBehaviour:
     Desc: "\uB0A1\uC558\uC9C0\uB9CC \uB4E0\uB4E0\uD55C \uAC11\uC637\uC774\uB2E4."
     Atk: 0
     Def: 0
-    Hp: 1
+    Hp: 3
     MovementSpeed: 0
     AttackSpeed: 0
     itemImage: {fileID: 0}
@@ -445,7 +445,7 @@ MonoBehaviour:
     Def: 0
     Hp: 0
     MovementSpeed: 0
-    AttackSpeed: 1
+    AttackSpeed: 3
     itemImage: {fileID: 0}
     isEquied: 0
   itemprefeb: {fileID: 6723599828637011740, guid: 1c4607b790771534885a1bbe1a84cc40, type: 3}
@@ -643,6 +643,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1563212098}
     m_Modifications:
+    - target: {fileID: -6001149926569002911, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
+      propertyPath: playerPos
+      value: 
+      objectReference: {fileID: 1563212098}
     - target: {fileID: 4766021524347543370, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -709,11 +713,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4766021524347543370, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 8.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4766021524347543370, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4766021524347543370, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -732,8 +736,7 @@ PrefabInstance:
       value: Staff
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects:
-    - {fileID: 5788655588840049757, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
+    m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}

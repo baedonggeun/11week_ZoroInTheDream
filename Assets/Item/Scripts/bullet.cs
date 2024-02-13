@@ -10,18 +10,26 @@ public class bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        DestoryBullet();
     }
 
     // Update is called once per frame
     void Update()
     {
         //todo : Vector MousePos 받아야함.
-        transform.Translate(transform.right * speed * Time.deltaTime);
+        transform.Translate(Vector2.right * speed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.transform.CompareTag("Monster"))
+        {
+            DestoryBullet();
+        }
     }
 
     void DestoryBullet()
     {
-        Destroy(gameObject);
+        Destroy(gameObject, 3f);
     }
 }
