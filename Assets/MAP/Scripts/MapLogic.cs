@@ -8,14 +8,14 @@ public class MapLogic : MonoBehaviour
 {
     public Tilemap[] tilemaps;
     public GameObject[] stage;
-    public GameObject NextStage; // ½ºÅ×ÀÌÁö¸¦ °¡¸®Å°´Â °ÔÀÓ ¿ÀºêÁ§Æ®
-    public bool doorSpawned = false; // ¹®ÀÌ »ý¼ºµÇ¾ú´ÂÁö ¿©ºÎ¸¦ ³ªÅ¸³¿
+    public GameObject NextStage; // ë‹¤ìŒ ìŠ¤í…Œì´ì§€ë¥¼ ê°€ë¦¬í‚¤ëŠ” ê²Œìž„ ì˜¤ë¸Œì íŠ¸
+    public bool doorSpawned = false; // ë¬¸ì´ ìƒì„±ë˜ì—ˆëŠ”ì§€ ì—¬ë¶€ë¥¼ ë‚˜íƒ€ëƒ„
     public Vector3 doorPosition;
-    private int monsterKillCount = 0; // Ã³Ä¡ÇÑ ¸ó½ºÅÍÀÇ ¼ö¸¦ ÀúÀå
+    private int monsterKillCount = 0; // ì²˜ì¹˜í•œ ëª¬ìŠ¤í„°ì˜ ìˆ˜ë¥¼ ì €ìž¥
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.W)) // ÇÃ·¹ÀÌ¾î°¡ 'W' Å°¸¦ ´­·¶°í ÀÌ¹Ì ¹®ÀÌ »ý¼ºµÇ¾úÀ¸¸ç ¸ó½ºÅÍ¸¦ ÃæºÐÈ÷ Ã³Ä¡Çß´Ù¸é ´ÙÀ½ ½ºÅ×ÀÌÁö·Î ÀÌµ¿
+        if (Input.GetKeyDown(KeyCode.W)) //  í”Œë ˆì´ì–´ê°€ 'W' í‚¤ë¥¼ ëˆŒë €ê³  ì´ë¯¸ ë¬¸ì´ ìƒì„±ë˜ì—ˆìœ¼ë©° ëª¬ìŠ¤í„°ë¥¼ ì¶©ë¶„ížˆ ì²˜ì¹˜í–ˆë‹¤ë©´ ë‹¤ìŒ ìŠ¤í…Œì´ì§€ë¡œ ì´ë™
         {
             if (doorSpawned && monsterKillCount >= 20)
             {
@@ -27,7 +27,7 @@ public class MapLogic : MonoBehaviour
         }
     }
 
-    public void MonsterKilled() // ¸ó½ºÅÍ¸¦ Ã³Ä¡ÇÑ ¼ö¸¦ Áõ°¡
+    public void MonsterKilled() // ëª¬ìŠ¤í„°ë¥¼ ì²˜ì¹˜í•œ ìˆ˜ë¥¼ ì¦ê°€
     {
         monsterKillCount++;
         if (monsterKillCount >= 20 && !doorSpawned)

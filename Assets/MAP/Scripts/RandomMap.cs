@@ -6,7 +6,7 @@ public class RandomMap : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player")) // Ãæµ¹ÇÑ °´Ã¼°¡ "Player" ÅÂ±×¸¦ °¡Áö°í ÀÖ´ÂÁö È®ÀÎ ¸¸¾à ÇÃ·¹ÀÌ¾î¿Í Ãæµ¹Çß´Ù¸é ´ÙÀ½À» ½ÇÇà
+        if (other.CompareTag("Player")) //  ì¶©ëŒí•œ ê°ì²´ê°€ "Player" íƒœê·¸ë¥¼ ê°€ì§€ê³  ìˆëŠ”ì§€ í™•ì¸
         {
             MapLogic gameManager = FindObjectOfType<MapLogic>();
             if (gameManager != null && gameManager.GetComponent<MapLogic>().doorSpawned)
