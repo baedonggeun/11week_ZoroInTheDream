@@ -22,7 +22,7 @@ public class bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.transform.CompareTag("Monster"))
+        if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Wall"))
         {
             DestoryBullet();
         }
@@ -31,5 +31,10 @@ public class bullet : MonoBehaviour
     void DestoryBullet()
     {
         Destroy(gameObject, 3f);
+    }
+
+    private void MonsterHit(GameObject monster)
+    {
+
     }
 }
