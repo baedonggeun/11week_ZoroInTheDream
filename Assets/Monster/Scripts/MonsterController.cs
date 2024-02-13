@@ -34,7 +34,7 @@ public class MonsterController : MonoBehaviour
 
     protected virtual void Update()
     {
-        attackDelay -= Time.deltaTime;
+        attackDelay -= Time.deltaTime; // 공격 
     }
 
     protected void MoveToTarget(Vector2 direction)
@@ -73,7 +73,7 @@ public class MonsterController : MonoBehaviour
     {
         speed = 0;
         collider.enabled = false;
-        // animator.SetTrigger("IsDead");
+        // animator.SetTrigger("IsDead"); // ani 제작 후 
         Destroy(gameObject, 1);
     }
 
