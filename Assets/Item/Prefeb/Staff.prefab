@@ -148,6 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8ab5a04a33e1a6478157c15f2c30617, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fireball: {fileID: 7204770702727106221, guid: 38c7796bccb57a749b18d5100221c821, type: 3}
+  fireball: {fileID: 4592626664704477264, guid: 559a566b41281fc4483453c466fbaad6, type: 3}
   mousePos: {fileID: 4766021524347543370}
   staff: {fileID: 8814385400641568415}
+  cooltime: 0.3
