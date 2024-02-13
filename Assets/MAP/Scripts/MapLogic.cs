@@ -7,20 +7,22 @@ using UnityEngine.Tilemaps;
 public class MapLogic : MonoBehaviour
 {
     public Tilemap[] tilemaps;
-    public GameObject NextStagedoor;
+    public GameObject[] stage;
+    public GameObject NextStage;
     public bool doorSpawned = false;
     public Vector3 doorPosition;
     private int monsterKillCount = 0;
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (Input.GetKeyDown(KeyCode.W))
         {
             if (doorSpawned && monsterKillCount >= 20)
             {
-                int randomIndex = Random.Range(0, tilemaps.Length);
-                Transform playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
-                playerTransform.position = tilemaps[randomIndex].WorldToCell(Vector3.zero);
+                int randomStageIndex = Random.Range(0, stage.Length);
+                GameObject nextStage = stage[randomStageIndex];
+
+                Instantiate(nextStage, doorPosition, Quaternion.identity);
             }
         }
     }
@@ -30,7 +32,7 @@ public class MapLogic : MonoBehaviour
         monsterKillCount++;
         if (monsterKillCount >= 20 && !doorSpawned)
         {
-            Instantiate(NextStagedoor, doorPosition, Quaternion.identity);
+            Instantiate(NextStage, doorPosition, Quaternion.identity);
             doorSpawned = true;
         }
     }
