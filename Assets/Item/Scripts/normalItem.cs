@@ -30,22 +30,25 @@ public class normalItem : MonoBehaviour
 
         if (item.itemType == Item.ItemType.Shose)
         {
-            Debug.Log(GetComponentInParent<TopDownMovement>().speed);
-            Debug.Log(item.MovementSpeed);
-            GetComponentInParent<TopDownMovement>().speed += item.MovementSpeed;
-            Debug.Log(GetComponentInParent<TopDownMovement>().speed);
+            //Debug.Log(GetComponentInParent<TopDownMovement>().speed);
+            //Debug.Log(item.MovementSpeed);
+            //GetComponentInParent<TopDownMovement>().speed += item.MovementSpeed;
+            //Debug.Log(GetComponentInParent<TopDownMovement>().speed);
+
             //todo : Shose transform.position 조정.
         }
 
         if (item.itemType == Item.ItemType.Armor)
         {
-            GetComponentInParent<TopDownMovement>().speed += item.Hp;
+            // GetComponentInParent<TopDownMovement>().speed += item.Hp;
+
             //todo : 윗줄 체력관련으로 컴포넌트 참조로 수치 바꿔야함.
         }
 
         if (item.itemType == Item.ItemType.Glove)
         {
-            GetComponentInParent<TopDownMovement>().speed += item.AttackSpeed;
+            // GetComponentInParent<TopDownMovement>().speed += item.AttackSpeed;
+
             //todo : 윗줄 공속관련으로 컴포넌트 참조로 수치 바꿔야함.
         }
 

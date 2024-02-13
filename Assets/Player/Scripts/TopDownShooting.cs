@@ -7,7 +7,7 @@ public class TopDownShooting : MonoBehaviour
 {
     private TopDownCharacterController _contoller;
 
-    [SerializeField] private Transform;
+    [SerializeField] private Transform projectileSpawnPosition;
     private Vector2 _aimDirection = Vector2.right;
     public GameObject testPrefab;
 
