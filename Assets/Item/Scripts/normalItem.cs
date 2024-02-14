@@ -48,4 +48,5 @@ public class normalItem : MonoBehaviour
         CharacterStatsHandler.instance.Addedhp = 0;
     }
 
+
 }
