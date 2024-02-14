@@ -5,22 +5,17 @@ using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.UI;
 
-public interface IDamagable
-{
-
-}
-
-public class CharacterHealthController : MonoBehaviour, IDamagable
+public class CharacterHealthController : MonoBehaviour
 {
     public Image Health;
 
-    private void Start()
+    private void Start()        //초기 체력 5칸으로 설정
     {
         Health.fillAmount = 1f;
 
     }
 
-    public void TakePhisicalDamage()
+    public void TakePhisicalDamage()        //데미지 받았을 경우 체력 1칸씩 깍이도록 설정
     {
         Health.fillAmount -= 0.2f;
     }
