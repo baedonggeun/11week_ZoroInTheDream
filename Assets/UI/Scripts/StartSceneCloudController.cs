@@ -16,12 +16,12 @@ public class StartSceneCloudController : MonoBehaviour
     string time_string;
     float time = 0f;
 
-    private void Start()        //처음 시작할 때 모든 구름 inactive
+    private void Start()
     {
         CloudActiveFalse();
     }
 
-    private void Update()       //시간에 따라 구름 생기고 사라지고 반복
+    private void Update()
     {
         time += Time.deltaTime;
 
@@ -31,7 +31,6 @@ public class StartSceneCloudController : MonoBehaviour
         CloudControl(cloudCount, time_string);
     }
 
-    //매개 변수의 값에 따라 구름 하나씩 active, 일정 시간 이후 모두 inactive
     public void CloudControl(int count, string time)
     {
         if (int.Parse(time_string) % 12 == 11)
@@ -57,7 +56,7 @@ public class StartSceneCloudController : MonoBehaviour
         }
     }
 
-    public int CloudCountControl(string time)       //시간에 따라 해당 count값을 반환하는 함수
+    public int CloudCountControl(string time)
     {
         int count = 0;
 
@@ -75,7 +74,7 @@ public class StartSceneCloudController : MonoBehaviour
         return count;
     }    
 
-    public void CloudActiveFalse()      //모든 구름을 inactive하는 함수
+    public void CloudActiveFalse()
     {
         cloud_1.SetActive(false);
         cloud_2.SetActive(false);
@@ -84,7 +83,7 @@ public class StartSceneCloudController : MonoBehaviour
         cloud_5.SetActive(false);
     }
 
-    public void StartButton()       //시작 버튼 누를 경우 mainScene으로 전환
+    public void StartButton()
     {
         SceneManager.LoadScene("MainScene");
     }
