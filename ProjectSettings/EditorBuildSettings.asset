@@ -6,12 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartScene.unity
-    guid: 5518284fb381a3849819f1827770b9bb
-  - enabled: 1
+    path: Assets/LeeHoYeol/Scenes/ItemScene.unity
     path: Assets/Scenes/MainScene.unity
-    guid: b480bbeba53ddf044830bad997f7a1ad
-  - enabled: 1
-    path: Assets/Scenes/EndScene.unity
-    guid: 23dbdc56e22e08d478328e3c478b7f2c
+    guid: 2cda990e2423bbf4892e6590ba056729
   m_configObjects: {}

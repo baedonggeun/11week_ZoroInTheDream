@@ -9,7 +9,7 @@ public class NormalItemManager : MonoBehaviour
     float movementspeed;
     void Start()
     {
-        // movementspeed = transform.GetComponentInParent<TopDownMovement>().speed;
+        movementspeed = transform.GetComponentInParent<TopDownMovement>().speed;
 
         movementspeed += item.MovementSpeed;
     }

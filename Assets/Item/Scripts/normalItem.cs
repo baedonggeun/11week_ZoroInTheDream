@@ -30,31 +30,27 @@ public class normalItem : MonoBehaviour
 
         if (item.itemType == Item.ItemType.Shose)
         {
-            //Debug.Log(GetComponentInParent<TopDownMovement>().speed);
-            //Debug.Log(item.MovementSpeed);
-            //GetComponentInParent<TopDownMovement>().speed += item.MovementSpeed;
-            //Debug.Log(GetComponentInParent<TopDownMovement>().speed);
-
+            Debug.Log(GetComponentInParent<TopDownMovement>().speed);
+            Debug.Log(item.MovementSpeed);
+            GetComponentInParent<TopDownMovement>().speed += item.MovementSpeed;
+            Debug.Log(GetComponentInParent<TopDownMovement>().speed);
             //todo : Shose transform.position 조정.
         }
 
         if (item.itemType == Item.ItemType.Armor)
         {
-            // GetComponentInParent<TopDownMovement>().speed += item.Hp;
-
+            GetComponentInParent<TopDownMovement>().speed += item.Hp;
             //todo : 윗줄 체력관련으로 컴포넌트 참조로 수치 바꿔야함.
         }
 
         if (item.itemType == Item.ItemType.Glove)
         {
-            // GetComponentInParent<TopDownMovement>().speed += item.AttackSpeed;
-
+            GetComponentInParent<TopDownMovement>().speed += item.AttackSpeed;
             //todo : 윗줄 공속관련으로 컴포넌트 참조로 수치 바꿔야함.
         }
 
         /*
-         * ? : 사실 이렇게 해도 상관없음. normal아이템들 사이에 차이가 없고, 추후
-         * 가시갑옷 같은 공격력과 방어력을 같이 가진 아이템을 만들기에도 용이
+         * ? : 이렇게 해도 상관없을듯.
         GetComponentInParent<TopDownMovement>().speed += item.MovementSpeed;
         GetComponentInParent<TopDownMovement>().speed += item.Hp;
         GetComponentInParent<TopDownMovement>().speed += item.AttackSpeed;
