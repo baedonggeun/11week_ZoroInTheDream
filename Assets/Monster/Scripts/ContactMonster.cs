@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -9,15 +9,14 @@ public class ContactMonster : MonsterController
     {
         base.Update();
 
-        float distance = Vector3.Distance(transform.position, target.position);
-        Vector2 direction = (target.transform.position - transform.position).normalized;
+        Vector2 direction = DirectionToTarget();
+        float distance = DistanceToTarget();
 
         if (distance < followRange)
         {
-            if (distance <= attackRange)    
+            if (distance <= attackRange && attackDelay == 0)
             {
-                AttackTarget();
-                MoveToTarget(Vector2.zero);
+
             }
             else
             {
@@ -25,13 +24,13 @@ public class ContactMonster : MonsterController
             }
         }
         MoveToTarget(direction);
-        Rotate();
+        //Rotate(direction);
+
     }
 
-    private void AttackTarget() // 공격하는 함수
+    private void AttackTarget()
     {
         //animator.SetTrigger("attack");
-        attackDelay = 0;
-        // 플레이어 피격 함수
+        attackDelay = attackSpeed;
     }
 }
