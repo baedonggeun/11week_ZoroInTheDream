@@ -7,7 +7,7 @@ public class PlayerAttack : MonoBehaviour
 {
 
     public GameObject fireball;
-    public Transform playerPos;
+    //public Transform playerPos;
     public GameObject weapon;
 
     public float cooltime;
@@ -22,13 +22,13 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
-                Instantiate(fireball, playerPos.position, transform.rotation);
+                //Instantiate(fireball, playerPos.position, transform.rotation);
+                Instantiate(fireball, gameObject.GetComponentInParent<Transform>().position, transform.rotation);
                 //todo : weaponitem에 맞는 component(scripts형) 추가.
                 curtime = cooltime;
             }
             
         }
         curtime -= Time.deltaTime;
-        Debug.Log(curtime);
     }
 }
