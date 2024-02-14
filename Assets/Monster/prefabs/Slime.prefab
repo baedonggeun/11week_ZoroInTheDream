@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 2006344406804766934}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6648794340086896510
 BoxCollider2D:
@@ -92,7 +92,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 0.1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -106,7 +106,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &-8376762146525444088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -127,6 +127,7 @@ MonoBehaviour:
   followRange: 10
   attackDelay: 1
   targetTag: Player
+  mobRender: {fileID: 250110411817977416}
 --- !u!1 &7376991339198956453
 GameObject:
   m_ObjectHideFlags: 0
