@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -37,5 +38,10 @@ public class TopDownMovement : MonoBehaviour
         direction = direction * _stats.CurrentStates.speed;
 
         _rigidbody.velocity = direction;
+    }
+
+    internal void ApplyKnockback(Transform transform, float knockbackPower, float knockbackTime)
+    {
+        throw new NotImplementedException();
     }
 }

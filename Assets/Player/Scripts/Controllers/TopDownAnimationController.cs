@@ -22,6 +22,12 @@ public class TopDownAnimationController : TopDownAnimations
     {
         controller.OnAttackEvent += Attacking;
         controller.OnMoveEvent += Move;
+
+        if (_healthSystem != null)
+        {
+            _healthSystem.OnDamage += Hit;
+            _healthSystem.OnInvincibilityEnd += InvincibilityEnd;
+        }
     }
 
     private void Move(Vector2 obj)
