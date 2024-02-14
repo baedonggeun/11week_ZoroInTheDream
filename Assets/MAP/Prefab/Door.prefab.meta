@@ -1,9 +1,9 @@
 fileFormatVersion: 2
-<<<<<<<< HEAD:Assets/MAP/Prefab/Door.prefab.meta
-guid: 848c1584515588d4990e5d16ddab1595
+<<<<<<<< HEAD:Assets/MAP/Prefab/Door (2).prefab.meta
+guid: bfe2c349347c75f489d78d526dd7ed16
 ========
-guid: 3051d99f565492c4badd785d264bedac
->>>>>>>> branch_Develop_New:Assets/Item/Prefeb/NormalItem.prefab.meta
+guid: 559a566b41281fc4483453c466fbaad6
+>>>>>>>> branch_Develop_New:Assets/Item/Prefeb/Bullet.prefab.meta
 PrefabImporter:
   externalObjects: {}
   userData: 
