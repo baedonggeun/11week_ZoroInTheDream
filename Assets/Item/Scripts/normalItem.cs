@@ -29,7 +29,7 @@ public class normalItem : MonoBehaviour
 
     public void SetItem(Item _item)
     {
-        item.Name = _item.Name;
+        item.Name = _item.Name; 
         item.MovementSpeed = _item.MovementSpeed;
         item.itemImage = _item.itemImage;
         item.itemType = _item.itemType;
@@ -39,12 +39,13 @@ public class normalItem : MonoBehaviour
         CharacterStatsHandler.instance.Addedspeed = item.AttackSpeed;
         CharacterStatsHandler.instance.Addedhp = item.Hp;
         //todo : °ø¼Ó
-    }
-
+    } 
+     
     //
     public void DestoryItem(Item _item)
     {
         CharacterStatsHandler.instance.Addedspeed = 0;
         CharacterStatsHandler.instance.Addedhp = 0;
     }
+
 }
