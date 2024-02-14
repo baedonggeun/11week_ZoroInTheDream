@@ -46,9 +46,6 @@ public class DoorManager : MonoBehaviour
     // 문의 위치를 계산하는 함수 (각 맵마다 다른 위치에 배치)
     private Vector3 CalculateDoorPosition(GameObject map)
     {
-        // 여기에 각 맵마다 다른 문 위치를 계산하는 로직을 추가하세요
-        // 예를 들어, 맵의 중앙에 배치하는 등의 방법을 사용할 수 있습니다.
-        // 이 예제에서는 간단하게 맵의 중앙에 배치하는 것으로 가정하겠습니다.
         return map.transform.position;
     }
 

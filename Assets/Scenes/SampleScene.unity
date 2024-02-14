@@ -11458,7 +11458,6 @@ Transform:
   - {fileID: 138103791}
   - {fileID: 940919296}
   - {fileID: 1753801389}
-  - {fileID: 1864044384}
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -33155,7 +33154,7 @@ Transform:
   - {fileID: 339854731}
   - {fileID: 713572179}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1831308061
 GameObject:
@@ -34646,8 +34645,8 @@ Transform:
   - {fileID: 2074379648}
   - {fileID: 1764053411}
   - {fileID: 1978460835}
-  m_Father: {fileID: 534082942}
-  m_RootOrder: -1
+  m_Father: {fileID: 0}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978460834
 GameObject:
@@ -40959,8 +40958,7 @@ PrefabInstance:
       propertyPath: maps.Array.data[2]
       value: 
       objectReference: {fileID: 1753801387}
-    m_RemovedComponents:
-    - {fileID: 3919314845575265353, guid: 8e695f199099fe44191e3daae347e0ba, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -41033,8 +41031,7 @@ PrefabInstance:
       propertyPath: maps.Array.data[2]
       value: 
       objectReference: {fileID: 1753801387}
-    m_RemovedComponents:
-    - {fileID: 5976541221380788675, guid: 78099aeabc7339a45a4f02dbd378c9b7, type: 3}
+    m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
