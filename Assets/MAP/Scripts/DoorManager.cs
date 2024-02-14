@@ -6,6 +6,7 @@ public class DoorManager : MonoBehaviour
     public GameObject[] maps;
 
     private bool allMonstersDefeated = false;
+    private bool sixthMapActivated = false;
 
     void Update()
     {
@@ -62,7 +63,27 @@ public class DoorManager : MonoBehaviour
             map.SetActive(map == randomMap);
         }
 
+        // 플레이어의 위치를 랜덤한 맵 내부의 랜덤한 위치로 이동
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            Vector3 randomPosition = GetRandomPositionInMap(randomMap);
+            player.transform.position = randomPosition;
+        }
+
         // 모든 몬스터가 처지지 않은 상태로 초기화
         allMonstersDefeated = false;
+    }
+
+    private Vector3 GetRandomPositionInMap(GameObject map)
+    {
+        // 맵의 중앙으로부터 일정 범위 내의 랜덤한 위치를 반환
+        float rangeX = 9f; // X 축 범위
+        float rangeZ = 15f; // Z 축 범위
+        Vector3 mapCenter = map.transform.position;
+        float randomX = Random.Range(mapCenter.x - rangeX, mapCenter.x + rangeX);
+        float randomZ = Random.Range(mapCenter.z - rangeZ, mapCenter.z + rangeZ);
+        float y = mapCenter.y;
+        return new Vector3(randomX, y, randomZ);
     }
 }
