@@ -16,18 +16,18 @@ public class MonsterController : MonoBehaviour
     public string targetTag = "Player";
     [SerializeField] private SpriteRenderer mobRender;
 
-    protected Rigidbody2D rb;
+    //protected Rigidbody2D rb;
     protected Collider2D collider;
 
     protected void Awake()
     {
-        rb = GetComponent<Rigidbody2D>();
+       // rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
     }
 
     protected void Start()
     {
-        target = GameObject.FindGameObjectWithTag(targetTag).transform; // 태그가 player인 게임오브젝트를 타겟으로 설정
+        target = GameObject.FindGameObjectWithTag("Player").transform; // 태그가 player인 게임오브젝트를 타겟으로 설정
         attackDelay = 0f;
     }
 
@@ -60,11 +60,21 @@ public class MonsterController : MonoBehaviour
 
     private void Die()
     {
+        mobRender = transform.GetComponentInChildren<SpriteRenderer>();
         speed = 0;
         collider.enabled = false;
+        Color color = mobRender.color;
+        color.a = 0.3f;
+        mobRender.color = color;
         // animator.SetTrigger("IsDead"); // ani 제작 후 
         Destroy(gameObject, 1);
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.gameObject.tag == "attack"/* 플레이어 공격 태그?  */)
+        {
+            TakeDamage(10 /* 플레이어의 공격 데미지 */);
+        }
+    }
 }
