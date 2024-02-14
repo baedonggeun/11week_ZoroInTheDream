@@ -1,17 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class RandomMap : MonoBehaviour
 {
-    private void OnTriggerEnter2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (other.CompareTag("Player")) //  충돌한 객체가 "Player" 태그를 가지고 있는지 확인
+        if (collision.CompareTag("Player"))
         {
-            MapLogic gameManager = FindObjectOfType<MapLogic>();
-            if (gameManager != null && gameManager.GetComponent<MapLogic>().doorSpawned)
+            // 플레이어가 문을 통과하면 문을 관리하는 스크립트 호출
+            DoorManager doorManager = GetComponentInParent<DoorManager>();
+            if (doorManager != null)
             {
-                Destroy(gameObject);
+                doorManager.PassThroughDoor();
             }
         }
     }
