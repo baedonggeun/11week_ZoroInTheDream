@@ -38,8 +38,7 @@ public class MonsterController : MonoBehaviour
     }
 
     protected void MoveToTarget(Vector2 direction)
-    {
-        
+    {      
         transform.Translate(direction * speed * Time.deltaTime);
         // animator.SetBool("Moving", true); //animation 적용시 
     }
