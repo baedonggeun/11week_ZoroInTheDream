@@ -26,7 +26,6 @@ public class ContactMonster : MonsterController
         }
         MoveToTarget(direction);
         Rotate();
-
     }
 
     private void AttackTarget() // 공격하는 함수

@@ -53,7 +53,8 @@ public class normalItem : MonoBehaviour
         }
 
         /*
-         * ? : 이렇게 해도 상관없을듯.
+         * ? : 사실 이렇게 해도 상관없음. normal아이템들 사이에 차이가 없고, 추후
+         * 가시갑옷 같은 공격력과 방어력을 같이 가진 아이템을 만들기에도 용이
         GetComponentInParent<TopDownMovement>().speed += item.MovementSpeed;
         GetComponentInParent<TopDownMovement>().speed += item.Hp;
         GetComponentInParent<TopDownMovement>().speed += item.AttackSpeed;
