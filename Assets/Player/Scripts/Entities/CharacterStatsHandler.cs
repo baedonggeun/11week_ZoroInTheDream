@@ -11,10 +11,24 @@ public class CharacterStatsHandler : MonoBehaviour
     public CharacterStats CurrentStates { get; private set; }
     public List<CharacterStats> statsModifiers = new List<CharacterStats>();
 
+    public float Addedspeed;
+    public int Addedhp;
+
+    #region Singleton
+    public static CharacterStatsHandler instance;
     private void Awake()
     {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
         UpdateCharacterStats();
     }
+    #endregion
+
+
 
     private void UpdateCharacterStats()
     {
@@ -27,8 +41,7 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates = new CharacterStats { attackSO = attackSO };
         // TODO
         CurrentStates.statsChangeType = baseStats.statsChangeType;
-        CurrentStates.maxHealth = baseStats.maxHealth;
-        CurrentStates.speed = baseStats.speed;
-
+        CurrentStates.maxHealth = baseStats.maxHealth + Addedhp;
+        CurrentStates.speed = baseStats.speed + Addedspeed;
     }
 }
