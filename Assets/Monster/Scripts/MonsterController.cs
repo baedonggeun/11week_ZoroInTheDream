@@ -1,4 +1,4 @@
-using System;
+ï»¿using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,7 +16,7 @@ public class MonsterController : MonoBehaviour
     public float attackDelay = 1f;
     public string targetTag = "Player";
     protected float attackSpeed = 1f;
-    protected SpriteRenderer mobRender;
+    [SerializeField] private SpriteRenderer mobRender;
 
     protected Rigidbody2D rb;
     protected Collider2D collider;
@@ -29,19 +29,19 @@ public class MonsterController : MonoBehaviour
 
     protected void Start()
     {
-        target = GameObject.FindGameObjectWithTag(targetTag).transform; // ÅÂ±×°¡ playerÀÎ °ÔÀÓ¿ÀºêÁ§Æ®¸¦ Å¸°ÙÀ¸·Î ¼³Á¤
+        target = GameObject.FindGameObjectWithTag(targetTag).transform; // íƒœê·¸ê°€ playerì¸ ê²Œì„ì˜¤ë¸Œì íŠ¸ë¥¼ íƒ€ê²Ÿìœ¼ë¡œ ì„¤ì •
     }
 
     protected virtual void Update()
     {
-        attackDelay -= Time.deltaTime;
+        attackDelay -= Time.deltaTime; // ê³µê²© 
     }
 
     protected void MoveToTarget(Vector2 direction)
     {
         
         transform.Translate(direction * speed * Time.deltaTime);
-        // animator.SetBool("Moving", true); //animation Àû¿ë½Ã 
+        // animator.SetBool("Moving", true); //animation ì ìš©ì‹œ 
     }
 
     protected void Rotate(Vector2 direction)
@@ -52,7 +52,7 @@ public class MonsterController : MonoBehaviour
 
     protected Vector2 DirectionToTarget()
     {
-        return (transform.position - transform.position).normalized;
+        return (target.position - transform.position);
     }
 
     protected float DistanceToTarget()
@@ -60,7 +60,7 @@ public class MonsterController : MonoBehaviour
         return Vector3.Distance(transform.position, target.position);
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount) // ëŒ€ë¯¸ì§€ ë°›ëŠ” í•¨ìˆ˜
     {
         health -= damageAmount;
         if(health <= 0)
@@ -73,7 +73,7 @@ public class MonsterController : MonoBehaviour
     {
         speed = 0;
         collider.enabled = false;
-        // animator.SetTrigger("IsDead");
+        // animator.SetTrigger("IsDead"); // ani ì œì‘ í›„ 
         Destroy(gameObject, 1);
     }
 
