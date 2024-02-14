@@ -24,7 +24,7 @@ public class ContactMonster : MonsterController
         //    }
         //}
         MoveToTarget(direction);
-        Rotate(direction);
+        //Rotate(direction);
 
     }
 

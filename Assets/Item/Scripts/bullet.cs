@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public class bullet : MonoBehaviour
@@ -7,6 +8,8 @@ public class bullet : MonoBehaviour
     public float speed;
     public float cooltime;
     private float curtime;
+
+    Animator animator;
     // Start is called before the first frame update
     void Start()
     {
@@ -24,12 +27,15 @@ public class bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Wall"))
         {
+            animator.SetTrigger("isHit");
+            Debug.Log("명중!");
             DestoryBullet();
         }
     }
 
     void DestoryBullet()
     {
+        //todo : die animation 끝날때까지의 시간정도 뒤에 Destory하게 만들어야함.
         Destroy(gameObject, 3f);
     }
 
