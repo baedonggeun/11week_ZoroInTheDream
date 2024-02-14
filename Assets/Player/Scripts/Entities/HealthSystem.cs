@@ -18,7 +18,7 @@ public class HealthSystem : MonoBehaviour
 
     public float CurrentHealth { get; private set; }
 
-    public float MaxHealth => _statsHandler.CurrentStats.maxHealth;
+    public float MaxHealth => _statsHandler.CurrentStates.maxHealth;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class HealthSystem : MonoBehaviour
 
     private void Start()
     {
-        CurrentHealth = _statsHandler.CurrentStats.maxHealth;
+        CurrentHealth = _statsHandler.CurrentStates.maxHealth;
     }
 
     private void Update()
