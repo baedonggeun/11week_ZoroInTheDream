@@ -6,6 +6,20 @@ using static UnityEditor.Progress;
 public class PlayerAttack : MonoBehaviour
 {
 
+    #region Singleton
+    public static PlayerAttack instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+    #endregion
+
+
     public GameObject fireball;
     //public Transform playerPos;
     public GameObject weapon;
