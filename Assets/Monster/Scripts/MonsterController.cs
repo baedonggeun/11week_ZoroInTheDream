@@ -29,7 +29,7 @@ public class MonsterController : MonoBehaviour
 
     protected void Start()
     {
-        target = GameObject.FindGameObjectWithTag(targetTag).transform; // 태그가 player인 게임오브젝트를 타겟으로 설정
+        target = GameObject.FindGameObjectWithTag(targetTag).transform; 
     }
 
     protected virtual void Update()
@@ -41,7 +41,7 @@ public class MonsterController : MonoBehaviour
     {
         
         transform.Translate(direction * speed * Time.deltaTime);
-        // animator.SetBool("Moving", true); //animation 적용시 
+        
     }
 
     protected void Rotate(Vector2 direction)
