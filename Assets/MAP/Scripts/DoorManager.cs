@@ -2,8 +2,8 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    public GameObject doorPrefab; // 문 프리팹
-    public GameObject[] maps; // 맵 오브젝트들
+    public GameObject doorPrefab;
+    public GameObject[] maps;
 
     private bool allMonstersDefeated = false;
 
