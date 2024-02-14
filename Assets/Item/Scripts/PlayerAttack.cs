@@ -30,6 +30,5 @@ public class PlayerAttack : MonoBehaviour
             
         }
         curtime -= Time.deltaTime;
-        Debug.Log(curtime);
     }
 }
