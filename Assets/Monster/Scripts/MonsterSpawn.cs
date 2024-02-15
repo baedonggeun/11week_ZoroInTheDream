@@ -7,6 +7,7 @@ public class MonsterSpawn : MonoBehaviour
 {
     [HideInInspector] public int mapSpawnCount = 0;
     [SerializeField] private int mapSpawnPosCount = 5;
+    private int stageNumber = 0;
 
     public List<GameObject> enemyPrefebs = new List<GameObject>();
     [SerializeField] private Transform spawnPosRoot;
@@ -49,6 +50,7 @@ public class MonsterSpawn : MonoBehaviour
         }
 
     }
+
 
     IEnumerator CreateMonster()
     {
