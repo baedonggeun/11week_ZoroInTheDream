@@ -9,13 +9,8 @@ public class bullet : MonoBehaviour
     public float cooltime;
     private float curtime;
 
-    private Animator animator;
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
-
+    Animator animator;
+    // Start is called before the first frame update
     void Start()
     {
         DestoryBullet();
@@ -34,8 +29,7 @@ public class bullet : MonoBehaviour
         {
             animator.SetTrigger("isHit");
             Debug.Log("ИэСп!");
-            Destroy(gameObject, 0.4f);
-            speed = 0f;
+            DestoryBullet();
         }
     }
 

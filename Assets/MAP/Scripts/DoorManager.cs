@@ -9,26 +9,26 @@ public class DoorManager : MonoBehaviour
 
     void Update()
     {
-        // ¸ğµç ¸ó½ºÅÍ°¡ Ã³Áö¸é ¹®À» »ı¼ºÇÏ°í È°¼ºÈ­
+        // ëª¨ë“  ëª¬ìŠ¤í„°ê°€ ì²˜ì§€ë©´ ë¬¸ì„ ìƒì„±í•˜ê³  í™œì„±í™”
         if (allMonstersDefeated && !IsDoorActive())
         {
             ActivateDoor();
         }
     }
 
-    // ¸ğµç ¸ó½ºÅÍ°¡ Ã³Áö¸é È£ÃâµÇ´Â ÇÔ¼ö
+    // ëª¨ë“  ëª¬ìŠ¤í„°ê°€ ì²˜ì§€ë©´ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public void AllMonstersDefeated()
     {
         allMonstersDefeated = true;
     }
 
-    // ¹®ÀÌ È°¼ºÈ­µÇ¾î ÀÖ´ÂÁö È®ÀÎ
+    // ë¬¸ì´ í™œì„±í™”ë˜ì–´ ìˆëŠ”ì§€ í™•ì¸
     private bool IsDoorActive()
     {
         return transform.childCount > 0;
     }
 
-    // ¹®À» È°¼ºÈ­ÇÏ´Â ÇÔ¼ö
+    // ë¬¸ì„ í™œì„±í™”í•˜ëŠ” í•¨ìˆ˜
     private void ActivateDoor()
     {
         foreach (GameObject map in maps)
@@ -43,45 +43,26 @@ public class DoorManager : MonoBehaviour
         }
     }
 
-    // ¹®ÀÇ À§Ä¡¸¦ °è»êÇÏ´Â ÇÔ¼ö (°¢ ¸Ê¸¶´Ù ´Ù¸¥ À§Ä¡¿¡ ¹èÄ¡)
+    // ë¬¸ì˜ ìœ„ì¹˜ë¥¼ ê³„ì‚°í•˜ëŠ” í•¨ìˆ˜ (ê° ë§µë§ˆë‹¤ ë‹¤ë¥¸ ìœ„ì¹˜ì— ë°°ì¹˜)
     private Vector3 CalculateDoorPosition(GameObject map)
     {
         return map.transform.position;
     }
-    // ¹®À» Åë°úÇÒ ¶§ È£ÃâµÇ´Â ÇÔ¼ö
+
+    // ë¬¸ì„ í†µê³¼í•  ë•Œ í˜¸ì¶œë˜ëŠ” í•¨ìˆ˜
     public void PassThroughDoor()
     {
-        // ÇÃ·¹ÀÌ¾îÀÇ À§Ä¡¸¦ ·£´ıÇÑ ¸Ê ³»ºÎÀÇ ·£´ıÇÑ À§Ä¡·Î ÀÌµ¿
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
+        // ëœë¤í•˜ê²Œ ë§µ ì„ íƒ
+        int randomIndex = Random.Range(0, maps.Length);
+        GameObject randomMap = maps[randomIndex];
+
+        // ì„ íƒëœ ë§µì„ í™œì„±í™”í•˜ê³  ë‚˜ë¨¸ì§€ëŠ” ë¹„í™œì„±í™”
+        foreach (GameObject map in maps)
         {
-            // ·£´ıÇÑ ¸Ê ¼±ÅÃ
-            int randomIndex = Random.Range(0, maps.Length);
-            GameObject randomMap = maps[randomIndex];
-
-            Vector3 randomPosition = GetRandomPositionInMap(randomMap);
-            player.transform.position = randomPosition;
-
-            // ¼±ÅÃµÈ ¸ÊÀ» È°¼ºÈ­ÇÏ°í ³ª¸ÓÁö´Â ºñÈ°¼ºÈ­
-            foreach (GameObject map in maps)
-            {
-                map.SetActive(map == randomMap);
-            }
-
-            // ¸ğµç ¸ó½ºÅÍ°¡ Ã³ÁöÁö ¾ÊÀº »óÅÂ·Î ÃÊ±âÈ­
-            allMonstersDefeated = false;
+            map.SetActive(map == randomMap);
         }
-    }
 
-    private Vector3 GetRandomPositionInMap(GameObject map)
-    {
-        // ¸ÊÀÇ Áß¾ÓÀ¸·ÎºÎÅÍ ÀÏÁ¤ ¹üÀ§ ³»ÀÇ ·£´ıÇÑ À§Ä¡¸¦ ¹İÈ¯
-        float rangeX = 5f; // X Ãà ¹üÀ§
-        float rangeY = 10f; // Y Ãà ¹üÀ§
-        Vector3 mapCenter = map.transform.position;
-        float randomX = Random.Range(mapCenter.x - rangeX, mapCenter.x + rangeX);
-        float randomY = Random.Range(mapCenter.y - rangeY, mapCenter.y + rangeY);
-        float z = 0f;
-        return new Vector3(randomX, randomY, z);
+        // ëª¨ë“  ëª¬ìŠ¤í„°ê°€ ì²˜ì§€ì§€ ì•Šì€ ìƒíƒœë¡œ ì´ˆê¸°í™”
+        allMonstersDefeated = false;
     }
 }
