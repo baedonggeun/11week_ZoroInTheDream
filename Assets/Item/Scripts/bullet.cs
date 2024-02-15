@@ -11,12 +11,6 @@ public class bullet : MonoBehaviour
 
     Animator animator;
     // Start is called before the first frame update
-
-    private void Awake()
-    {
-        animator = GetComponent<Animator>();
-    }
-
     void Start()
     {
         DestoryBullet();
