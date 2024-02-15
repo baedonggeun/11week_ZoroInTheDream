@@ -4,22 +4,37 @@ using UnityEngine;
 
 public class MonsterSpawn : MonoBehaviour
 {
-    private int spawnCount = 0;
-    private int waveSpawnCount = 0;
-    private int waveSpawnPosCount = 0;
+    [SerializeField] private int enemyCount = 0;
+    [SerializeField] private int mapSpawnCount = 0;
+    [SerializeField] private int mapSpawnPosCount = 0;
 
-    public float spawnInterval = 0.5f;
     public List<GameObject> enemyPrefebs = new List<GameObject>();
     [SerializeField] private Transform spawnPosRoot;
     private List<Transform> spawnPos = new List<Transform>();
 
-    private void Start()
+    private void Awake()
     {
-        
+        for (int i = 0; i < spawnPosRoot.childCount; i++)
+        {
+            spawnPos.Add(spawnPosRoot.GetChild(i));
+        }
     }
 
-    IEnumerator StartNextMap()
+    private void Start()
     {
+        CreateMonster();
+    }
 
+    private void CreateMonster()
+    {
+        for(int i = 0; i < mapSpawnPosCount; i++)
+        {
+            int posIdx = Random.Range(0, spawnPos.Count);
+            for(int j = 0; j < mapSpawnCount; j++)
+            {
+                int prefabIdx = Random.Range(0, enemyPrefebs.Count);
+                GameObject enemy = Instantiate(enemyPrefebs[prefabIdx], spawnPos[posIdx].position, Quaternion.identity);
+            }
+        }
     }
 }

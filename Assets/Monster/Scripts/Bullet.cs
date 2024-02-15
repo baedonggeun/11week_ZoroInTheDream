@@ -14,13 +14,19 @@ public class Bullet : MonoBehaviour
         Vector2 dir = target.position - transform.position;
         rb = GetComponent<Rigidbody2D>();
         rb.AddForce(dir * speed, ForceMode2D.Impulse);
+        DestroyBullet();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.transform.CompareTag("Player") || collision.transform.CompareTag("Wall"))
         {
             Destroy(gameObject);
         }
+    }
+
+    void DestroyBullet()
+    {
+        Destroy(gameObject, 3f);
     }
 }

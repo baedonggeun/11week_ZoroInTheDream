@@ -14,6 +14,7 @@ public class MonsterController : MonoBehaviour
     public float followRange = 10f;
     public float attackDelay = 0f;
     public string targetTag = "Player";
+    public bool IsDead = false;
     [SerializeField] private SpriteRenderer mobRender;
 
     //protected Rigidbody2D rb;
@@ -58,7 +59,7 @@ public class MonsterController : MonoBehaviour
         }
     }
 
-    private void Die()
+    public void Die()
     {
         mobRender = transform.GetComponentInChildren<SpriteRenderer>();
         speed = 0;
@@ -66,15 +67,16 @@ public class MonsterController : MonoBehaviour
         Color color = mobRender.color;
         color.a = 0.3f;
         mobRender.color = color;
+        IsDead = true;
         // animator.SetTrigger("IsDead"); // ani 제작 후 
         Destroy(gameObject, 1);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "attack"/* 플레이어 공격 태그?  */)
+        if(collision.gameObject.tag == "Bullet"/* 플레이어 공격 태그?  */)
         {
-            TakeDamage(10 /* 플레이어의 공격 데미지 */);
+            TakeDamage(100 /* 플레이어의 공격 데미지 */);
         }
     }
 }

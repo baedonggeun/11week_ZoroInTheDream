@@ -211,5 +211,6 @@ MonoBehaviour:
   followRange: 10
   attackDelay: 0
   targetTag: Player
+  IsDead: 0
   mobRender: {fileID: 271512225559251346}
   bulletPrefab: {fileID: 2618540078758907703, guid: 9c26e8696ee7cd040a29be3904278da4, type: 3}
