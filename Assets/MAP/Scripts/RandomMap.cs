@@ -5,14 +5,10 @@ public class RandomMap : MonoBehaviour
 {
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.transform.CompareTag("Player"))
         {
-            // �÷��̾ ���� ����ϸ� ���� �����ϴ� ��ũ��Ʈ ȣ��
-            DoorManager doorManager = GetComponentInParent<DoorManager>();
-            if (doorManager != null)
-            {
-                doorManager.PassThroughDoor();
-            }
+            Debug.Log("문에 닿음");
+            DoorManager.instance.PassThroughDoor();
         }
     }
 }

@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class BossMonster : MonoBehaviour
@@ -137,17 +136,6 @@ public class BossMonster : MonoBehaviour
         color.a = 0.3f;
         BossRender.color = color;
         Destroy(gameObject, 1);
-
-        int timeDelay = 0;
-
-        while(timeDelay >= 1000)
-        {
-            Time.timeScale = 0f;
-            timeDelay++;
-            Time.timeScale = 1f;
-        }
-
-        SceneManager.LoadScene("EndScene");
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
