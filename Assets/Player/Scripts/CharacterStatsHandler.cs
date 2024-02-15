@@ -37,6 +37,10 @@ public class CharacterStatsHandler : MonoBehaviour
     }
     #endregion
 
+    private void Update()
+    {
+        UpdateCharacterStats();
+    }
     private void UpdateCharacterStats()
     {
         AttackSO attackSO = null;
