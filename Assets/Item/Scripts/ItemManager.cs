@@ -1,7 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.InputSystem.XR;
+using static UnityEditor.Progress;
 
 public class ItemManager : MonoBehaviour
 {
@@ -18,22 +21,26 @@ public class ItemManager : MonoBehaviour
         instance = this;
     }
     #endregion
-    public void GetRandomNormalItem()
+
+    public GameObject itemprefeb;
+    public GameObject player;
+    public void GetNormalItem()
     {
-        for (int i = 0; i < ItemDatabase.instance.itemDB.Count; i++)
-        {
-            if (ItemDatabase.instance.itemDB[i].itemType != Item.ItemType.Weapon)
-                ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]);
-        }
+        int i = Random.Range(2, 4);
+        GameObject item = Instantiate(itemprefeb);
+        item.transform.SetParent(player.transform);
+        item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+        
     }
 
-
-    public void GetRandomWeaponItem()
+    
+    public void GetWeaponItem()
     {
-        for (int i = 0; i < ItemDatabase.instance.itemDB.Count; i++)
-        {
-            if (ItemDatabase.instance.itemDB[i].itemType == Item.ItemType.Weapon)
-                ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]);
-        }
+        ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[0]);
+
+        //item object Ãß°¡
+        GameObject item2 = Instantiate(itemprefeb);
+        item2.transform.parent = player.transform;
+        item2.GetComponent<normalItem>().SetItem(ItemDatabase.instance.itemDB[0]);
     }
 }
