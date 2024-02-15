@@ -6,6 +6,24 @@ using static UnityEditor.Progress;
 public class PlayerAttack : MonoBehaviour
 {
 
+    #region Singleton
+    public static PlayerAttack instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+        soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+
+    }
+    #endregion
+
+    SoundManager soundManager;
+
+
     public GameObject fireball;
     //public Transform playerPos;
     public GameObject weapon;
@@ -22,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                SoundManager.instance.PlaySFX(soundManager.fireBallClip);
                 //Instantiate(fireball, playerPos.position, transform.rotation);
                 Instantiate(fireball, gameObject.GetComponentInParent<Transform>().position, transform.rotation);
                 //todo : weaponitem에 맞는 component(scripts형) 추가.
