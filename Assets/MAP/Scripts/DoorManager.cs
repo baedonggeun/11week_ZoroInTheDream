@@ -78,12 +78,12 @@ public class DoorManager : MonoBehaviour
     private Vector3 GetRandomPositionInMap(GameObject map)
     {
         // 맵의 중앙으로부터 일정 범위 내의 랜덤한 위치를 반환
-        float rangeX = 9f; // X 축 범위
-        float rangeZ = 15f; // Z 축 범위
+        float rangeX = 5f; // X 축 범위
+        float rangeY = 10f; // Y 축 범위
         Vector3 mapCenter = map.transform.position;
         float randomX = Random.Range(mapCenter.x - rangeX, mapCenter.x + rangeX);
-        float randomZ = Random.Range(mapCenter.z - rangeZ, mapCenter.z + rangeZ);
-        float y = mapCenter.y;
-        return new Vector3(randomX, y, randomZ);
+        float randomY = Random.Range(mapCenter.y - rangeY, mapCenter.y + rangeY);
+        float z = 0f;
+        return new Vector3(randomX, randomY, z);
     }
 }
