@@ -35,17 +35,9 @@ public class BossMonster : MonoBehaviour
 
     void Rush()
     {
-        Vector3 direction = (target.transform.position - transform.position).normalized;
-        transform.position += direction * rushSpeed * Time.deltaTime;
-        Debug.Log("rush");
-        //walkCount++;
-        //if (walkCount < 50)
-        //    Invoke("Rush", 0.1f);
-        //else
-        //{
-        //    walkCount = 0;
-            Invoke("Think", 3);
-        //}
+        StartCoroutine("rushCoroutine");
+        Invoke("Think", 3);
+        
     }
 
     void ThrowStone()
@@ -58,17 +50,32 @@ public class BossMonster : MonoBehaviour
 
     void Move()
     {
+        StartCoroutine("MoveCoroutine");
+        
+        Invoke("Think", 3);
+        
+    }
+
+    IEnumerator MoveCoroutine()
+    {
         Vector3 direction = (target.transform.position - transform.position).normalized;
-        transform.position += direction * walkSpeed * Time.deltaTime;
-        Debug.Log("move");
-        //walkCount++;
-        //if (walkCount < 30)
-        //    Invoke("Rush", 0.1f);
-        //else
-        //{
-        //    walkCount = 0;
-            Invoke("Think", 3);
-        //}
+        while (true)
+        {
+            transform.position += direction * walkSpeed * Time.deltaTime;
+            Debug.Log("move");
+            yield return new WaitForSeconds(0.03f);
+        }
+    }
+
+    IEnumerator rushCoroutine()
+    {
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        while (true)
+        {
+            transform.position += direction * rushSpeed * Time.deltaTime;
+            Debug.Log("move");
+            yield return new WaitForSeconds(0.03f);
+        }
     }
 
     void stop()
@@ -78,6 +85,7 @@ public class BossMonster : MonoBehaviour
 
     void Think()
     {
+        StopAllCoroutines();
         int patternIndex = Random.Range(0, 3);
 
         switch (patternIndex)
