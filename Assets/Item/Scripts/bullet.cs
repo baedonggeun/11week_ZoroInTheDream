@@ -27,9 +27,9 @@ public class bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Wall"))
         {
-            //animator.SetTrigger("isHit");
+            animator.SetTrigger("isHit");
             Debug.Log("ИэСп!");
-            Destroy(gameObject);
+            DestoryBullet();
         }
     }
 
