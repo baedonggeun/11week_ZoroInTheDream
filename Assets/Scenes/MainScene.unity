@@ -4923,7 +4923,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 1647591377292838048, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
   maps: []
-  stageNumber: 0
   playerTransform: {fileID: 1563212098}
   cameraPosition: {x: 0, y: 0, z: 0}
   cameraMoveSpeed: 5
@@ -26866,6 +26865,10 @@ PrefabInstance:
       propertyPath: m_IsTrigger
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7376991339198956453, guid: 6344b2fcf9a6ac947a1cf075dc1c8a36, type: 3}
+      propertyPath: m_TagString
+      value: Monster
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: -1378428283179303179, guid: 6344b2fcf9a6ac947a1cf075dc1c8a36, type: 3}
     m_RemovedGameObjects: []
@@ -27085,6 +27088,8 @@ MonoBehaviour:
     speed: 10
     attackSO: {fileID: 11400000, guid: 1da0033e46d3847418b9e216d26c4fb5, type: 2}
   statsModifiers: []
+  Addedspeed: 0
+  Addedhp: 0
 --- !u!114 &1563212106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27094,7 +27099,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1563212094}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 611919995d0128b4fbb0c97abb8d3e75, type: 3}
+  m_Script: {fileID: 11500000, guid: 992c9b33d13b64844a1151965a73aec3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1575501795
@@ -55159,12 +55164,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trsMenu: {fileID: 3552347904119691069}
-  stage_1: {fileID: 5881273395425506700}
-  stage_2: {fileID: 98642898}
-  stage_3: {fileID: 307905539}
-  stageText: {fileID: 1456453500519983955}
-  stepText: {fileID: 253324663}
-  remainMonsterCount: {fileID: 3497372760297499398}
 --- !u!222 &4322420629247084999
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8376762146525444088}
   m_Layer: 0
   m_Name: Slime
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -33,7 +33,7 @@ Transform:
   m_Children:
   - {fileID: 2006344406804766934}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &6648794340086896510
 BoxCollider2D:
@@ -127,6 +127,8 @@ MonoBehaviour:
   followRange: 10
   attackDelay: 1
   targetTag: Player
+  IsDead: 0
+  mobRender: {fileID: 0}
 --- !u!1 &7376991339198956453
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +141,7 @@ GameObject:
   - component: {fileID: 250110411817977416}
   m_Layer: 0
   m_Name: MainSprite
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

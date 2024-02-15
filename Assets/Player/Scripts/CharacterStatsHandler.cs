@@ -28,7 +28,7 @@ public class CharacterStatsHandler : MonoBehaviour
     }
     #endregion
 
-    
+
 
     private void UpdateCharacterStats()
     {
@@ -43,5 +43,31 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates.statsChangeType = baseStats.statsChangeType;
         CurrentStates.maxHealth = baseStats.maxHealth + Addedhp;
         CurrentStates.speed = baseStats.speed + Addedspeed;
+    }
+
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Enemy")
+        {
+            TakeDamage();
+            Debug.Log("플레이어가 맞았습니다");
+        }
+    }
+
+    private void TakeDamage()
+    {
+        if (CurrentStates.maxHealth > 0)
+        {
+            CurrentStates.maxHealth -= 1;
+        }
+        else if (CurrentStates.maxHealth == 0)
+        {
+            Die();
+        }
+    }
+
+    private void Die()
+    {
+        
     }
 }
