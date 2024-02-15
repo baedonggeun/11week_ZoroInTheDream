@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    public GameObject Map1, Map2, Map3, CompensationMap;
+    public GameObject Map1, Map2, Map3, CompensationMap, BossMap;
 
 
     public Transform player;
@@ -69,6 +69,7 @@ public class DoorManager : MonoBehaviour
     // 문을 통과할 때 호출되는 함수
     public void PassThroughDoor()
     {
+        ItemManager.instance.GetNormalItem();
         player.position = new Vector3(0, 0, 0);
         stageNumber++;      //다음 스테이지로 이동
 
@@ -100,7 +101,7 @@ public class DoorManager : MonoBehaviour
             Map1.SetActive(false);
             Map2.SetActive(false);
             Map3.SetActive(false);
-            //BossMap.SetActive(true);
+            BossMap.SetActive(true);
         }
         else
         {
