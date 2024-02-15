@@ -7,8 +7,8 @@ public class BossMonster : MonoBehaviour
 {
     private Transform target;
     public int health = 1000;
-    private float walkSpeed = 3;
-    private float rushSpeed = 6;
+    private float walkSpeed = 5;
+    private float rushSpeed = 20;
     public GameObject StonePrefab;
     public SpriteRenderer BossRender;
     private int walkCount = 0;
@@ -39,7 +39,7 @@ public class BossMonster : MonoBehaviour
     void Rush()
     {
         StartCoroutine("rushCoroutine");
-        Invoke("Think", 3);
+        Invoke("Think", 1);
         
     }
 
@@ -76,8 +76,8 @@ public class BossMonster : MonoBehaviour
         while (true)
         {
             transform.position += direction * rushSpeed * Time.deltaTime;
-            Debug.Log("move");
-            yield return new WaitForSeconds(0.03f);
+            Debug.Log("rush");
+            yield return new WaitForSeconds(0.01f);
         }
     }
 
@@ -142,7 +142,7 @@ public class BossMonster : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bullet")/* 플레이어 공격 태그?  */)
         {
-            TakeDamage(100 /* 플레이어의 공격 데미지 */);
+            TakeDamage(1 /* 플레이어의 공격 데미지 */);
             Debug.Log(health);
         }
     }
