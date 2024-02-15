@@ -616,8 +616,6 @@ MonoBehaviour:
     AttackSpeed: 0.02
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
     isEquied: 0
-  itemprefeb: {fileID: 0}
-  player: {fileID: 0}
 --- !u!1 &98642898
 GameObject:
   m_ObjectHideFlags: 0
@@ -4689,12 +4687,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0492ae72dd5b42543ba8ab6ec19e4100, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bgmSource: {fileID: 0}
-  sfxCource: {fileID: 0}
-  bgmClip: {fileID: 0}
-  mapChangeClip: {fileID: 0}
-  fireBallClip: {fileID: 0}
-  slimeDieClip: {fileID: 0}
+  bgmSource: {fileID: 488763703}
+  sfxCource: {fileID: 1699374222}
+  bgmClip: {fileID: 8300000, guid: e120273f4069cca43b0bfcae3fc0b1f9, type: 3}
+  mapChangeClip: {fileID: 8300000, guid: ff529a65b92a7c24e8e5cf7b98fb7c62, type: 3}
+  fireBallClip: {fileID: 8300000, guid: 802e17b7fce98d24087cf78b18f2049b, type: 3}
+  slimeDieClip: {fileID: 8300000, guid: 7bc27f6a24acfbb46bbf1f8dbd04a1c9, type: 3}
   uiSelectClip: {fileID: 0}
   walkClip: {fileID: 0}
   mixer: {fileID: 24100000, guid: 9ccae3eb6924e1646bed56e99fe837b6, type: 2}
@@ -32813,9 +32811,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5193709892061476239, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
+      propertyPath: cooltime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5193709892061476239, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
       propertyPath: fireball
       value: 
-      objectReference: {fileID: 4592626664704477264, guid: 559a566b41281fc4483453c466fbaad6, type: 3}
+      objectReference: {fileID: 4592626664704477264, guid: bc45635e2b0df524cb5a5c9027b390f2, type: 3}
     - target: {fileID: 8814385400641568415, guid: 7c0aece3634d4a0428247cdd7f4be0b5, type: 3}
       propertyPath: m_Name
       value: Staff
