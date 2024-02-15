@@ -20,10 +20,10 @@ public class normalItem : MonoBehaviour
     {
         item.Name = _item.Name; 
         item.MovementSpeed = _item.MovementSpeed;
-        item.itemImage = _item.itemImage;
+        //item.itemImage = _item.itemImage;
         item.itemType = _item.itemType;
         item.AttackSpeed = _item.AttackSpeed;
-        image.sprite = item.itemImage;
+        //image.sprite = item.itemImage;
 
         CharacterStatsHandler.instance.Addedspeed += item.AttackSpeed;
         CharacterStatsHandler.instance.Addedhp += item.Hp;
