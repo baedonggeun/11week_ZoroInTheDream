@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class BossMonster : MonoBehaviour
 {
     private Transform target;
-    public int health = 1000;
+    public int health = 5000;
     private float walkSpeed = 5;
     private float rushSpeed = 20;
     public GameObject StonePrefab;
@@ -138,16 +138,25 @@ public class BossMonster : MonoBehaviour
         BossRender.color = color;
         Destroy(gameObject, 1);
 
-        int timeDelay = 0;
+        Time.timeScale = 0.1f;
 
-        while(timeDelay >= 1000)
-        {
-            Time.timeScale = 0f;
-            timeDelay++;
-            Time.timeScale = 1f;
-        }
+        StartCoroutine(TimeDelay());
+
+
 
         SceneManager.LoadScene("EndScene");
+    }
+
+    IEnumerator TimeDelay()
+    {
+        int number = 0;
+
+        while(number > 10)
+        {
+            yield return new WaitForSeconds(0.2f);
+        }
+
+        yield break;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

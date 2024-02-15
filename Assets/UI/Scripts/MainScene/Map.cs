@@ -109,9 +109,6 @@ public class Map : MonoBehaviour
 
     public void bossHealthPopUP(int stageNumber)
     {
-        if(stageNumber == 14)
-        {
-            bossHealth.SetActive(true);
-        }
+        bossHealth.SetActive(true);
     }
 }

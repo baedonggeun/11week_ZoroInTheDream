@@ -4,6 +4,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
+using TMPro;
+using Unity.VisualScripting;
+using static Unity.Burst.Intrinsics.X86.Avx;
+using UnityEditor.Build.Content;
 using UnityEngine.SceneManagement;
 
 public class CharacterStatsHandler : MonoBehaviour
@@ -16,6 +20,8 @@ public class CharacterStatsHandler : MonoBehaviour
     public int Addedhp;
 
     public Image Health;
+
+    [SerializeField] private GameObject gameOver;
 
     #region Singleton
     public static CharacterStatsHandler instance;
@@ -31,6 +37,10 @@ public class CharacterStatsHandler : MonoBehaviour
     }
     #endregion
 
+    private void Update()
+    {
+        UpdateCharacterStats();
+    }
     private void UpdateCharacterStats()
     {
         AttackSO attackSO = null;
@@ -62,7 +72,7 @@ public class CharacterStatsHandler : MonoBehaviour
             CurrentStates.maxHealth -= 1;
             Health.fillAmount -= 0.2f;
 
-            if (CurrentStates.maxHealth == 0)
+            if(CurrentStates.maxHealth <= 0)
             {
                 Die();
             }
@@ -74,11 +84,13 @@ public class CharacterStatsHandler : MonoBehaviour
         Health.fillAmount = 0f;
         Time.timeScale = 0f;
 
-        gameObject.SetActive(true);
+        gameOver.SetActive(true);
     }
 
     public void OnRetryButton()
     {
+        Time.timeScale = 1f;
+        
         SceneManager.LoadScene("StartScene");
     }
 }
