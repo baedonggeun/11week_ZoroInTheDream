@@ -24,21 +24,27 @@ public class ItemManager : MonoBehaviour
 
     public GameObject itemprefeb;
     public GameObject player;
+
+    //맵 클리어시 기본아이템 획득용 메서드
     public void GetNormalItem()
     {
         int i = Random.Range(2, 4);
-        GameObject item = Instantiate(itemprefeb);
-        item.transform.SetParent(player.transform);
-        item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+
+        if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
+        {
+            GameObject item = Instantiate(itemprefeb);
+            item.transform.SetParent(player.transform);
+            item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+        }
         
     }
 
     
     public void GetWeaponItem()
     {
+
         ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[0]);
 
-        //item object 추가
         GameObject item2 = Instantiate(itemprefeb);
         item2.transform.parent = player.transform;
         item2.GetComponent<normalItem>().SetItem(ItemDatabase.instance.itemDB[0]);

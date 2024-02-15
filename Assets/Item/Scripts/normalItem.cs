@@ -25,8 +25,8 @@ public class normalItem : MonoBehaviour
         item.AttackSpeed = _item.AttackSpeed;
         image.sprite = item.itemImage;
 
-        CharacterStatsHandler.instance.Addedspeed = item.AttackSpeed;
-        CharacterStatsHandler.instance.Addedhp = item.Hp;
+        CharacterStatsHandler.instance.Addedspeed += item.AttackSpeed;
+        CharacterStatsHandler.instance.Addedhp += item.Hp;
         //todo : °ø¼Ó
     } 
      
