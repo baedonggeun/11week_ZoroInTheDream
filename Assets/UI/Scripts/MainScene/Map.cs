@@ -6,6 +6,22 @@ using UnityEngine.UIElements;
 
 public class Map : MonoBehaviour
 {
+
+    #region Singleton
+    public static Map instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+
+    }
+    #endregion
+
+
     [SerializeField] private Transform trsMenu;
     [SerializeField] private GameObject stage_1;
     [SerializeField] private GameObject stage_2;
