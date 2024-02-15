@@ -1,25 +1,41 @@
+using TMPro;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
     public GameObject doorPrefab;
     public GameObject[] maps;
+    public TextMeshProUGUI remainMonsterCount;
 
-    private bool allMonstersDefeated = false;
+    private int allMonstersDefeated = 0;
+
+    public int stageNumber = 1;
 
     void Update()
     {
+        //MonsterRemain();
+
         // 모든 몬스터가 처지면 문을 생성하고 활성화
-        if (allMonstersDefeated && !IsDoorActive())
+        if (allMonstersDefeated <= 0 && !IsDoorActive())
         {
             ActivateDoor();
         }
     }
 
+    //TODO
+    //public void MonsterRemain()
+    //{
+    //    MonsterSpawn monsterSpawn = new MonsterSpawn();
+    //    int monsterCount = monsterSpawn.mapSpawnCount;
+
+        
+    //    remainMonsterCount.text = monsterCount.ToString();
+    //}
+
     // 모든 몬스터가 처지면 호출되는 함수
     public void AllMonstersDefeated()
     {
-        allMonstersDefeated = true;
+        allMonstersDefeated = 0;
     }
 
     // 문이 활성화되어 있는지 확인
@@ -56,6 +72,13 @@ public class DoorManager : MonoBehaviour
         int randomIndex = Random.Range(0, maps.Length);
         GameObject randomMap = maps[randomIndex];
 
+        Map mapStage = new Map();
+
+        stageNumber++;      //다음 스테이지로 이동
+
+        mapStage.StageStepText(stageNumber);        //스테이지 이동 시, 맵 이미지와 상단 텍스트 변경
+        mapStage.bossHealthPopUP(stageNumber);      //보스 스테이지의 경우(14번째 맵) 보스 체력 active
+
         // 선택된 맵을 활성화하고 나머지는 비활성화
         foreach (GameObject map in maps)
         {
@@ -63,8 +86,7 @@ public class DoorManager : MonoBehaviour
         }
 
         // 모든 몬스터가 처지지 않은 상태로 초기화
-        allMonstersDefeated = false;
-
+        
         return randomIndex;
     }
 }

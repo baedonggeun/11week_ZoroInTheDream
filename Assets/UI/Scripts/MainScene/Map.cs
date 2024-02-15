@@ -1,11 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UIElements;
 
 public class Map : MonoBehaviour
 {
     [SerializeField] private Transform trsMenu;
+    [SerializeField] private GameObject stage_1;
+    [SerializeField] private GameObject stage_2;
+    [SerializeField] private GameObject stage_3;
+    public GameObject bossHealth;
+
+    public TextMeshProUGUI stageText;
+    public TextMeshProUGUI stepText;
+    public TextMeshProUGUI remainMonsterCount;
 
     bool mapOpened;
 
@@ -13,7 +22,6 @@ public class Map : MonoBehaviour
     {
         mapOpened = false;
     }
-
 
     IEnumerator SlideMap()
     {
@@ -69,5 +77,41 @@ public class Map : MonoBehaviour
         }
         else if (mapOpened)
             MapClose();
+    }
+
+    public void StageStepText(int stageNumber)       //스테이지 넘어갈 때마다 상단의 스테이지 단계 수정 및 맵의 이미지 수정
+    {
+        if(stageNumber <= 3)
+        {
+            stage_1.SetActive(true);
+            stage_2.SetActive(false);
+            stage_3.SetActive(false);
+            stageText.text = "1";
+            stepText.text = stageNumber.ToString();
+        }
+        else if(stageNumber > 3 && stageNumber <= 8)
+        {
+            stage_1.SetActive(false);
+            stage_2.SetActive(true);
+            stage_3.SetActive(false);
+            stageText.text = "2";
+            stepText.text = (stageNumber - 3).ToString();
+        }
+        else if(stageNumber > 8)
+        {
+            stage_1.SetActive(false);
+            stage_2.SetActive(false);
+            stage_3.SetActive(true);
+            stageText.text = "3";
+            stepText.text = (stageNumber - 8).ToString();
+        }
+    }
+
+    public void bossHealthPopUP(int stageNumber)
+    {
+        if(stageNumber == 14)
+        {
+            bossHealth.SetActive(true);
+        }
     }
 }
