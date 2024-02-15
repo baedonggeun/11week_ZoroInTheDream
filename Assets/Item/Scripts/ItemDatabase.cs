@@ -18,15 +18,5 @@ public class ItemDatabase : MonoBehaviour
     #endregion
     public List<Item> itemDB = new List<Item>();
 
-    public GameObject itemprefeb;
-    public GameObject player;
-
-    void Start()
-    {
-        //test용 shose(이속증가)
-        GameObject item = Instantiate(itemprefeb);
-        item.transform.SetParent(player.transform);
-        item.GetComponent<normalItem>().SetItem(itemDB[2]);//shose
-    }
 
 }
