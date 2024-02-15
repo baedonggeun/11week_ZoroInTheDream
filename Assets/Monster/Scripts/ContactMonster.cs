@@ -33,4 +33,6 @@ public class ContactMonster : MonsterController
         //animator.SetTrigger("attack");
         attackDelay = attackSpeed;
     }
+
+
 }
