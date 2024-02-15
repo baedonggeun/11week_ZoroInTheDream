@@ -7,7 +7,7 @@ public class CameraController : DoorManager
     [SerializeField] Transform playerTransform;
     [SerializeField] Vector3 cameraPosition;
 
-    [SerializeField] Vector2 center;
+    Vector2 center = new Vector2(0.5f, 0f);
     Vector2 mapSize;
 
     [SerializeField] float cameraMoveSpeed;
