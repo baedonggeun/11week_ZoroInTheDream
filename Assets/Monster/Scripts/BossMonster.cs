@@ -8,8 +8,8 @@ public class BossMonster : MonoBehaviour
 {
     private Transform target;
     public int health = 1000;
-    private float walkSpeed = 3;
-    private float rushSpeed = 6;
+    private float walkSpeed = 5;
+    private float rushSpeed = 20;
     public GameObject StonePrefab;
     public SpriteRenderer BossRender;
     private int walkCount = 0;
@@ -39,17 +39,9 @@ public class BossMonster : MonoBehaviour
 
     void Rush()
     {
-        Vector3 direction = (target.transform.position - transform.position).normalized;
-        transform.position += direction * rushSpeed * Time.deltaTime;
-        Debug.Log("rush");
-        //walkCount++;
-        //if (walkCount < 50)
-        //    Invoke("Rush", 0.1f);
-        //else
-        //{
-        //    walkCount = 0;
-            Invoke("Think", 3);
-        //}
+        StartCoroutine("rushCoroutine");
+        Invoke("Think", 1);
+        
     }
 
     void ThrowStone()
@@ -62,17 +54,32 @@ public class BossMonster : MonoBehaviour
 
     void Move()
     {
+        StartCoroutine("MoveCoroutine");
+        
+        Invoke("Think", 3);
+        
+    }
+
+    IEnumerator MoveCoroutine()
+    {
         Vector3 direction = (target.transform.position - transform.position).normalized;
-        transform.position += direction * walkSpeed * Time.deltaTime;
-        Debug.Log("move");
-        //walkCount++;
-        //if (walkCount < 30)
-        //    Invoke("Rush", 0.1f);
-        //else
-        //{
-        //    walkCount = 0;
-            Invoke("Think", 3);
-        //}
+        while (true)
+        {
+            transform.position += direction * walkSpeed * Time.deltaTime;
+            Debug.Log("move");
+            yield return new WaitForSeconds(0.03f);
+        }
+    }
+
+    IEnumerator rushCoroutine()
+    {
+        Vector3 direction = (target.transform.position - transform.position).normalized;
+        while (true)
+        {
+            transform.position += direction * rushSpeed * Time.deltaTime;
+            Debug.Log("rush");
+            yield return new WaitForSeconds(0.01f);
+        }
     }
 
     void stop()
@@ -82,6 +89,7 @@ public class BossMonster : MonoBehaviour
 
     void Think()
     {
+        StopAllCoroutines();
         int patternIndex = Random.Range(0, 3);
 
         switch (patternIndex)
@@ -146,7 +154,7 @@ public class BossMonster : MonoBehaviour
     {
         if (collision.transform.CompareTag("Bullet")/* 플레이어 공격 태그?  */)
         {
-            TakeDamage(100 /* 플레이어의 공격 데미지 */);
+            TakeDamage(1 /* 플레이어의 공격 데미지 */);
             Debug.Log(health);
         }
     }
