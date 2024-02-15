@@ -16,8 +16,12 @@ public class PlayerAttack : MonoBehaviour
             return;
         }
         instance = this;
+        soundManager = GameObject.FindGameObjectWithTag("Sound").GetComponent<SoundManager>();
+
     }
     #endregion
+
+    SoundManager soundManager;
 
 
     public GameObject fireball;
@@ -36,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Mouse0))
             {
+                SoundManager.instance.PlaySFX(soundManager.fireBallClip);
                 //Instantiate(fireball, playerPos.position, transform.rotation);
                 Instantiate(fireball, gameObject.GetComponentInParent<Transform>().position, transform.rotation);
                 //todo : weaponitem에 맞는 component(scripts형) 추가.
