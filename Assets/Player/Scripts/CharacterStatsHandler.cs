@@ -18,8 +18,10 @@ public class CharacterStatsHandler : MonoBehaviour
 
     public float Addedspeed;
     public int Addedhp;
+    public int MaxHp = 5;
 
     public Image Health;
+    public TextMeshProUGUI SpeedText;
 
     [SerializeField] private GameObject gameOver;
 
@@ -40,6 +42,7 @@ public class CharacterStatsHandler : MonoBehaviour
     private void Update()
     {
         UpdateCharacterStats();
+        SpeedText.text = CurrentStates.speed.ToString();
     }
     private void UpdateCharacterStats()
     {
@@ -52,7 +55,7 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates = new CharacterStats { attackSO = attackSO };
         // TODO
         CurrentStates.statsChangeType = baseStats.statsChangeType;
-        CurrentStates.maxHealth = baseStats.maxHealth + Addedhp;
+        //CurrentStates.maxHealth = baseStats.maxHealth + Addedhp;
         CurrentStates.speed = baseStats.speed + Addedspeed;
     }
 
@@ -67,12 +70,12 @@ public class CharacterStatsHandler : MonoBehaviour
 
     private void TakeDamage()
     {
-        if (CurrentStates.maxHealth > 0)
+        if (MaxHp > 0)
         {
-            CurrentStates.maxHealth -= 1;
+            MaxHp -= 1;
             Health.fillAmount -= 0.2f;
 
-            if(CurrentStates.maxHealth <= 0)
+            if(MaxHp <= 0)
             {
                 Die();
             }
@@ -85,6 +88,7 @@ public class CharacterStatsHandler : MonoBehaviour
         Time.timeScale = 0f;
 
         gameOver.SetActive(true);
+        MaxHp = 5;
     }
 
     public void OnRetryButton()
