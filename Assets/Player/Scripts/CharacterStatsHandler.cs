@@ -46,7 +46,7 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates.speed = baseStats.speed + Addedspeed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Monster")
         {
