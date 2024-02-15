@@ -3,40 +3,39 @@ using UnityEngine;
 
 public class TopDownDash : MonoBehaviour
 {
-    public float dashSpeed = 10f;
-    public float dashTime = 0.5f;
-    private float currentDashTime;
+    public float dashDistance = 5f;
+    public float dashDuration = 0.2f;
+    public float dashCooldown = 1f;
 
-    private Rigidbody2D rb;
-    private bool isDashing = false;
-
-    void Start()
-    {
-        rb = GetComponent<Rigidbody2D>();
-    }
+    private bool canDash = true;
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && !isDashing)
+        if (Input.GetKeyDown(KeyCode.Space) && canDash)
         {
-            isDashing = true;
-            currentDashTime = dashTime;
+            StartCoroutine(PerformDash());
+        }
+    }
 
-            Vector2 dashDirection = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-            rb.AddForce(dashDirection * dashSpeed, ForceMode2D.Impulse);
-            Debug.Log("´­¸²");
+    IEnumerator PerformDash()
+    {
+        canDash = false;
+
+        Vector3 startPos = transform.position;
+        Vector3 endPos = startPos + transform.forward * dashDistance;
+
+        float elapsedTime = 0f;
+
+        while (elapsedTime < dashDuration)
+        {
+            transform.position = Vector3.Lerp(startPos, endPos, elapsedTime / dashDuration);
+            elapsedTime += Time.deltaTime;
+            yield return null;
         }
 
-        if (isDashing)
-        {
-            if (currentDashTime > 0)
-            {
-                currentDashTime -= Time.deltaTime;
-            }
-            else
-            {
-                isDashing = false;
-            }
-        }
+        transform.position = endPos;
+
+        yield return new WaitForSeconds(dashCooldown);
+        canDash = true;
     }
 }
