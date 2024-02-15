@@ -33,6 +33,7 @@ public class bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Wall"))
         {
+            speed = 0f;
             animator.SetTrigger("isHit");
             Debug.Log("명중!");
             DestoryBullet();
@@ -42,7 +43,7 @@ public class bullet : MonoBehaviour
     void DestoryBullet()
     {
         //todo : die animation 끝날때까지의 시간정도 뒤에 Destory하게 만들어야함.
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 0.5f);
     }
 
     private void MonsterHit(GameObject monster)
