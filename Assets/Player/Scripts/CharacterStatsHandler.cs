@@ -58,7 +58,7 @@ public class CharacterStatsHandler : MonoBehaviour
         if (collision.gameObject.tag == "Monster")
         {
             TakeDamage();
-            Debug.Log("�÷��̾ �¾ҽ��ϴ�");
+            Debug.Log("플레이어가 맞았습니다.");
         }
     }
 

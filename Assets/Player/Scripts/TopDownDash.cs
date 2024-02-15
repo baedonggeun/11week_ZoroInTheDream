@@ -6,6 +6,7 @@ public class TopDownDash : MonoBehaviour
     public float dashSpeed = 10f;
     public float dashTime = 0.5f;
     private float currentDashTime;
+    Animator anim;
 
     private Rigidbody2D rb;
     private bool isDashing = false;
