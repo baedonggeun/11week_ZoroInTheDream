@@ -29,7 +29,7 @@ public class BossMonster : MonoBehaviour
 
     private void Update()
     {
-        Think();
+        
         Rotate();
     }
 
@@ -113,7 +113,7 @@ public class BossMonster : MonoBehaviour
         }
     }
 
-    public void Die()
+    public void Die() //  ㅁ
     {
         BossRender = transform.GetComponentInChildren<SpriteRenderer>();
         walkSpeed = 0;
@@ -121,7 +121,6 @@ public class BossMonster : MonoBehaviour
         Color color = BossRender.color;
         color.a = 0.3f;
         BossRender.color = color;
-        // animator.SetTrigger("IsDead"); // ani 제작 후 
         Destroy(gameObject, 1);
     }
 
