@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 using static UnityEditor.Progress;
 
 public class PlayerAttack : MonoBehaviour
@@ -27,6 +29,7 @@ public class PlayerAttack : MonoBehaviour
     public GameObject fireball;
     //public Transform playerPos;
     public GameObject weapon;
+    public TextMeshProUGUI AttackSpeedText;
 
     public float cooltime;
     private float curtime;
@@ -49,5 +52,6 @@ public class PlayerAttack : MonoBehaviour
             
         }
         curtime -= Time.deltaTime;
+        AttackSpeedText.text = cooltime.ToString();
     }
 }
