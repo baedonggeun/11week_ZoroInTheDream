@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class CameraController : MonoBehaviour
@@ -8,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Vector3 cameraPosition;
 
     Vector2 center = new Vector2(0.5f, 0f);
-    Vector2 mapSize;
+    Vector2 mapSize = new Vector2(0f, 0f);
 
     [SerializeField] float cameraMoveSpeed;
     float height;
@@ -24,6 +25,10 @@ public class CameraController : MonoBehaviour
 
     void FixedUpdate()
     {
+        DoorManager doorManager = DoorManager.instance;
+        mapSize.x = doorManager.mapSize_x;
+        mapSize.y = doorManager.mapSize_y;
+
         LimitCameraArea();
     }
 
@@ -47,32 +52,5 @@ public class CameraController : MonoBehaviour
         Gizmos.DrawWireCube(center, mapSize * 2);
     }
 
-    public void MapSizeSetting()        //맵 종류에 따라 size 세팅
-    {
-        /*
-        Map map = new Map();
-
-        int mapNumber = map.RandomMapActive(true);
-        //todo : 바꿔야햄
-        switch(mapNumber)
-        {
-            case 0:
-                mapSize.x = 18.5f;
-                mapSize.y = 14.0f;
-                break;
-            case 1:
-                mapSize.x = 22.5f;
-                mapSize.y = 11.0f;
-                break;
-            case 2:
-                mapSize.x = 10.5f;
-                mapSize.y = 21.5f;
-                break;
-            default:
-                break;
-        }
-        */
-        mapSize.x = 18.5f;
-        mapSize.y = 14.0f;
-    }
+    
 }

@@ -12,6 +12,10 @@ public class DoorManager : MonoBehaviour
 
     public int stageNumber = 1;
 
+    [HideInInspector] public int randomMap = 0;
+    [HideInInspector] public float mapSize_x = 0f;
+    [HideInInspector] public float mapSize_y = 0f;
+
 
     #region Singleton
     public static DoorManager instance;
@@ -78,14 +82,18 @@ public class DoorManager : MonoBehaviour
         }
 
         NextMap();
-
+        MapSizeSetting();
 
     }
 
     public void NextMap()
     {
+        randomMap = Random.Range(0, 3);
+
         if (stageNumber == 6 || stageNumber == 11)
         {
+            randomMap = 3;
+
             Map1.SetActive(false);
             Map2.SetActive(false);
             Map3.SetActive(false);
@@ -93,6 +101,8 @@ public class DoorManager : MonoBehaviour
         }
         else if (stageNumber == 14)
         {
+            randomMap = 4;
+
             CompensationMap.SetActive(false);
             Map1.SetActive(false);
             Map2.SetActive(false);
@@ -101,25 +111,54 @@ public class DoorManager : MonoBehaviour
         }
         else
         {
-            int i = Random.Range(0, 3);
-            if (i == 0)
+            if (randomMap == 0)
             {
                 Map1.SetActive(true);
                 Map2.SetActive(false);
                 Map3.SetActive(false);
+                CompensationMap.SetActive(false);
             }
-            else if (i == 1)
+            else if (randomMap == 1)
             {
                 Map1.SetActive(false);
                 Map2.SetActive(true);
                 Map3.SetActive(false);
+                CompensationMap.SetActive(false);
             }
-            else if (i == 2)
+            else if (randomMap == 2)
             {
                 Map1.SetActive(false);
                 Map2.SetActive(false);
                 Map3.SetActive(true);
+                CompensationMap.SetActive(false);
             }
+        }
+    }
+
+    public void MapSizeSetting()        //맵 종류에 따라 size 세팅
+    {
+        switch (randomMap)
+        {
+            case 0:
+                mapSize_x = 18.5f;
+                mapSize_y = 14.0f;
+                break;
+            case 1:
+                mapSize_x = 22.5f;
+                mapSize_y = 11.0f;
+                break;
+            case 2:
+                mapSize_x = 10.5f;
+                mapSize_y = 21.5f;
+                break;
+            case 3:
+                mapSize_x = 10.5f;
+                mapSize_y = 8f;
+                break;
+            case 4:
+                mapSize_x = 13.5f;
+                mapSize_y = 13f;
+                break;
         }
     }
 
