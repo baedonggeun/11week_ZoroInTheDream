@@ -9,8 +9,13 @@ public class bullet : MonoBehaviour
     public float cooltime;
     private float curtime;
 
-    Animator animator;
-    // Start is called before the first frame update
+    private Animator animator;
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         DestoryBullet();
@@ -27,9 +32,10 @@ public class bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Wall"))
         {
-            //animator.SetTrigger("isHit");
+            animator.SetTrigger("isHit");
             Debug.Log("ИэСп!");
-            Destroy(gameObject);
+            Destroy(gameObject, 0.4f);
+            speed = 0f;
         }
     }
 
