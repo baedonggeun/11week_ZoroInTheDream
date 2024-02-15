@@ -63,6 +63,7 @@ public class DoorManager : MonoBehaviour
         stageNumber++;      //다음 스테이지로 이동
 
         mapStage.StageStepText(stageNumber);        //스테이지 이동 시, 맵 이미지와 상단 텍스트 변경
+        mapStage.bossHealthPopUP(stageNumber);      //보스 스테이지의 경우(14번째 맵) 보스 체력 active
 
         // 선택된 맵을 활성화하고 나머지는 비활성화
         foreach (GameObject map in maps)

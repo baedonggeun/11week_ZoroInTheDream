@@ -10,6 +10,7 @@ public class Map : MonoBehaviour
     [SerializeField] private GameObject stage_1;
     [SerializeField] private GameObject stage_2;
     [SerializeField] private GameObject stage_3;
+    public GameObject bossHealth;
 
     public TextMeshProUGUI stageText;
     public TextMeshProUGUI stepText;
@@ -103,6 +104,14 @@ public class Map : MonoBehaviour
             stage_3.SetActive(true);
             stageText.text = "3";
             stepText.text = (stageNumber - 8).ToString();
+        }
+    }
+
+    public void bossHealthPopUP(int stageNumber)
+    {
+        if(stageNumber == 14)
+        {
+            bossHealth.SetActive(true);
         }
     }
 }
