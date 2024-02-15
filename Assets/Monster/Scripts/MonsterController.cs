@@ -18,12 +18,11 @@ public class MonsterController : MonoBehaviour
     [SerializeField] private SpriteRenderer mobRender;
 
     //protected Rigidbody2D rb;
-    protected Collider2D collider;
 
     protected void Awake()
     {
        // rb = GetComponent<Rigidbody2D>();
-        collider = GetComponent<Collider2D>();
+        //collider = GetComponent<Collider2D>();
     }
 
     protected void Start()
@@ -63,7 +62,7 @@ public class MonsterController : MonoBehaviour
     {
         mobRender = transform.GetComponentInChildren<SpriteRenderer>();
         speed = 0;
-        collider.enabled = false;
+        //collider.enabled = false;
         Color color = mobRender.color;
         color.a = 0.3f;
         mobRender.color = color;
@@ -72,11 +71,12 @@ public class MonsterController : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.gameObject.tag == "Bullet"/* 플레이어 공격 태그?  */)
         {
             TakeDamage(100 /* 플레이어의 공격 데미지 */);
+            Debug.Log(health);
         }
     }
 }
