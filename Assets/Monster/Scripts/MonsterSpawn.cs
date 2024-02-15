@@ -36,13 +36,12 @@ public class MonsterSpawn : MonoBehaviour
         for(int i = 0; i < mapSpawnCount; i++)
         {
             int posIdx = Random.Range(0, spawnPos.Count);
-            //for(int j = 0; j < mapSpawnCount; j++)
-            //{
-                int prefabIdx = Random.Range(0, enemyPrefebs.Count);
-                GameObject enemy = Instantiate(enemyPrefebs[prefabIdx], spawnPos[posIdx].position, Quaternion.identity);
+            
+            int prefabIdx = Random.Range(0, enemyPrefebs.Count);
+            GameObject enemy = Instantiate(enemyPrefebs[prefabIdx], spawnPos[posIdx].position, Quaternion.identity);
 
-                yield return new WaitForSeconds(1f);
-           // }
+            yield return new WaitForSeconds(1f);
+            
         }
     }
 
