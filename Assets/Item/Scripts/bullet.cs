@@ -42,7 +42,7 @@ public class bullet : MonoBehaviour
     void DestoryBullet()
     {
         //todo : die animation 끝날때까지의 시간정도 뒤에 Destory하게 만들어야함.
-        Destroy(gameObject, 0.4f);
+        Destroy(gameObject, 3f);
     }
 
     private void MonsterHit(GameObject monster)

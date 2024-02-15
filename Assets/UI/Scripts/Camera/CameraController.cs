@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : DoorManager
 {
     [SerializeField] Transform playerTransform;
     [SerializeField] Vector3 cameraPosition;
@@ -49,11 +49,9 @@ public class CameraController : MonoBehaviour
 
     public void MapSizeSetting()        //맵 종류에 따라 size 세팅
     {
-        /*
-        Map map = new Map();
+        DoorManager doorManager = new DoorManager();
 
-        int mapNumber = map.RandomMapActive(true);
-        //todo : 바꿔야햄
+        int mapNumber = doorManager.PassThroughDoor();
         switch(mapNumber)
         {
             case 0:
@@ -71,8 +69,6 @@ public class CameraController : MonoBehaviour
             default:
                 break;
         }
-        */
-        mapSize.x = 18.5f;
-        mapSize.y = 14.0f;
+
     }
 }
