@@ -4,7 +4,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 using UnityEngine.UI;
-
+using TMPro;
+using Unity.VisualScripting;
+using static Unity.Burst.Intrinsics.X86.Avx;
+using UnityEditor.Build.Content;
+using UnityEngine.SceneManagement;
 
 public class CharacterStatsHandler : MonoBehaviour
 {
@@ -15,7 +19,10 @@ public class CharacterStatsHandler : MonoBehaviour
     public float Addedspeed;
     public int Addedhp;
 
+    public int maxHp = 5;
     public Image Health;
+
+    [SerializeField] private GameObject gameOver;
 
     #region Singleton
     public static CharacterStatsHandler instance;
@@ -31,6 +38,10 @@ public class CharacterStatsHandler : MonoBehaviour
     }
     #endregion
 
+    private void Update()
+    {
+        UpdateCharacterStats();
+    }
     private void UpdateCharacterStats()
     {
         AttackSO attackSO = null;
@@ -42,35 +53,44 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates = new CharacterStats { attackSO = attackSO };
         // TODO
         CurrentStates.statsChangeType = baseStats.statsChangeType;
-        CurrentStates.maxHealth = baseStats.maxHealth + Addedhp;
+        //HP구현 하지않기로함.
+        //CurrentStates.maxHealth = baseStats.maxHealth + Addedhp;
         CurrentStates.speed = baseStats.speed + Addedspeed;
     }
-
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Monster")
         {
             TakeDamage();
-            Debug.Log("�÷��̾ �¾ҽ��ϴ�");
+            Debug.Log("플레이어가 맞았습니다.");
         }
     }
 
     private void TakeDamage()
     {
-        if (CurrentStates.maxHealth > 0)
+        if (maxHp > 0)
         {
-            CurrentStates.maxHealth -= 1;
+            maxHp -= 1;
             Health.fillAmount -= 0.2f;
-        }
-        else if (CurrentStates.maxHealth == 0)
-        {
-            Die();
-            Health.fillAmount = 0f;
+
+            if(maxHp == 0)
+            {
+                Die();
+                
+            }
         }
     }
 
     private void Die()
     {
+        Health.fillAmount = 0f;
+        Time.timeScale = 0f;
 
+        gameOver.SetActive(true);
+    }
+
+    public void OnRetryButton()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }
