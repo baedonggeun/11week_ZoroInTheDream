@@ -8,6 +8,7 @@ public class MonsterSpawn : MonoBehaviour
     [SerializeField] private int enemyCount = 0;
     public int mapSpawnCount = 0;
     [SerializeField] private int mapSpawnPosCount = 5;
+    private int stageNumber = 0;
 
     public List<GameObject> enemyPrefebs = new List<GameObject>();
     [SerializeField] private Transform spawnPosRoot;
@@ -21,15 +22,17 @@ public class MonsterSpawn : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Update()
     {
         DoorManager doorManager = DoorManager.instance;
-        int stageNumber = doorManager.stageNumber;
-
-        mapSpawnCount = MonsterSpawnCount(stageNumber);
-
-        StartCoroutine(CreateMonster());
+        if (stageNumber != doorManager.stageNumber)
+        {
+            stageNumber = doorManager.stageNumber;
+            mapSpawnCount = MonsterSpawnCount(stageNumber);
+            StartCoroutine(CreateMonster());
+        }
     }
+
 
     IEnumerator CreateMonster()
     {

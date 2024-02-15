@@ -208,7 +208,7 @@ MonoBehaviour:
   damage: 1
   attackRate: 2
   attackRange: 6
-  followRange: 10
+  followRange: 20
   attackDelay: 0
   targetTag: Player
   IsDead: 0

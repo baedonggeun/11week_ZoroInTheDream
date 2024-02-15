@@ -16,6 +16,7 @@ public class MonsterController : MonoBehaviour
     public string targetTag = "Player";
     public bool IsDead = false;
     [SerializeField] private SpriteRenderer mobRender;
+    public SoundManager soundManager;
 
     //protected Rigidbody2D rb;
     protected Collider2D collider;
@@ -40,7 +41,6 @@ public class MonsterController : MonoBehaviour
     protected void MoveToTarget(Vector2 direction)
     {
         transform.Translate(direction * speed * Time.deltaTime);
-        // animator.SetBool("Moving", true); //animation 적용시 
     }
 
     protected void Rotate()
@@ -61,15 +61,16 @@ public class MonsterController : MonoBehaviour
 
     public void Die()
     {
+        SoundManager.instance.PlaySFX(SoundManager.instance.slimeDieClip);
         mobRender = transform.GetComponentInChildren<SpriteRenderer>();
         speed = 0;
+        attackDelay = 0;
         collider.enabled = false;
         Color color = mobRender.color;
         color.a = 0.3f;
         mobRender.color = color;
         IsDead = true;
-        // animator.SetTrigger("IsDead"); // ani 제작 후 
-        Destroy(gameObject, 1);
+        Destroy(gameObject, 0.5f);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
