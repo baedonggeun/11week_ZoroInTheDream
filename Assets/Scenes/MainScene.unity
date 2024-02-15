@@ -4923,6 +4923,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 1647591377292838048, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
   maps: []
+  remainMonsterCount: {fileID: 0}
   stageNumber: 0
   playerTransform: {fileID: 1563212098}
   cameraPosition: {x: 0, y: 0, z: 0}
@@ -27085,6 +27086,9 @@ MonoBehaviour:
     speed: 10
     attackSO: {fileID: 11400000, guid: 1da0033e46d3847418b9e216d26c4fb5, type: 2}
   statsModifiers: []
+  Addedspeed: 0
+  Addedhp: 0
+  Health: {fileID: 6438792764651996742}
 --- !u!114 &1563212106
 MonoBehaviour:
   m_ObjectHideFlags: 0

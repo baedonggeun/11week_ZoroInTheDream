@@ -1,27 +1,41 @@
+using TMPro;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
     public GameObject doorPrefab;
     public GameObject[] maps;
+    public TextMeshProUGUI remainMonsterCount;
 
-    private bool allMonstersDefeated = false;
+    private int allMonstersDefeated = 0;
 
     public int stageNumber = 1;
 
     void Update()
     {
+        //MonsterRemain();
+
         // 모든 몬스터가 처지면 문을 생성하고 활성화
-        if (allMonstersDefeated && !IsDoorActive())
+        if (allMonstersDefeated <= 0 && !IsDoorActive())
         {
             ActivateDoor();
         }
     }
 
+    //TODO
+    //public void MonsterRemain()
+    //{
+    //    MonsterSpawn monsterSpawn = new MonsterSpawn();
+    //    int monsterCount = monsterSpawn.mapSpawnCount;
+
+        
+    //    remainMonsterCount.text = monsterCount.ToString();
+    //}
+
     // 모든 몬스터가 처지면 호출되는 함수
     public void AllMonstersDefeated()
     {
-        allMonstersDefeated = true;
+        allMonstersDefeated = 0;
     }
 
     // 문이 활성화되어 있는지 확인
@@ -72,7 +86,7 @@ public class DoorManager : MonoBehaviour
         }
 
         // 모든 몬스터가 처지지 않은 상태로 초기화
-        allMonstersDefeated = false;
+        
         return randomIndex;
     }
 }

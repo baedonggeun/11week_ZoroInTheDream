@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 
 public class CharacterStatsHandler : MonoBehaviour
@@ -13,6 +14,8 @@ public class CharacterStatsHandler : MonoBehaviour
 
     public float Addedspeed;
     public int Addedhp;
+
+    public Image Health;
 
     #region Singleton
     public static CharacterStatsHandler instance;
@@ -48,7 +51,7 @@ public class CharacterStatsHandler : MonoBehaviour
         if (collision.gameObject.tag == "Monster")
         {
             TakeDamage();
-            Debug.Log("ÇÃ·¹ÀÌ¾î°¡ ¸Â¾Ò½À´Ï´Ù");
+            Debug.Log("ï¿½Ã·ï¿½ï¿½Ì¾î°¡ ï¿½Â¾Ò½ï¿½ï¿½Ï´ï¿½");
         }
     }
 
@@ -57,10 +60,12 @@ public class CharacterStatsHandler : MonoBehaviour
         if (CurrentStates.maxHealth > 0)
         {
             CurrentStates.maxHealth -= 1;
+            Health.fillAmount -= 0.2f;
         }
         else if (CurrentStates.maxHealth == 0)
         {
             Die();
+            Health.fillAmount = 0f;
         }
     }
 
