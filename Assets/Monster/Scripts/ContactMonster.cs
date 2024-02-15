@@ -23,8 +23,8 @@ public class ContactMonster : MonsterController
             {
                 MoveToTarget(direction);
             }
+            MoveToTarget(direction);
         }
-        MoveToTarget(direction);
         Rotate();
     }
 
@@ -35,5 +35,5 @@ public class ContactMonster : MonsterController
         // 플레이어 피격 함수
     }
 
-
+    
 }

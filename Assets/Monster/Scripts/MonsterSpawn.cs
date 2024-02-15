@@ -22,6 +22,7 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Start()
     {
+
         CreateMonster();
     }
 
