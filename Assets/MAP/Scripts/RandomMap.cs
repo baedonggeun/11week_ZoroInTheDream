@@ -7,7 +7,7 @@ public class RandomMap : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            // í”Œë ˆì´ì–´ê°€ ë¬¸ì„ í†µê³¼í•˜ë©´ ë¬¸ì„ ê´€ë¦¬í•˜ëŠ” ìŠ¤í¬ë¦½íŠ¸ í˜¸ì¶œ
+            // ÇÃ·¹ÀÌ¾î°¡ ¹®À» Åë°úÇÏ¸é ¹®À» °ü¸®ÇÏ´Â ½ºÅ©¸³Æ® È£Ãâ
             DoorManager doorManager = GetComponentInParent<DoorManager>();
             if (doorManager != null)
             {
