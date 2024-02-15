@@ -1,26 +1,56 @@
+using TMPro;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    public GameObject doorPrefab;
-    public GameObject[] maps;
+    public GameObject Map1, Map2, Map3, CompensationMap;
 
-    private bool allMonstersDefeated = false;
-    private bool sixthMapActivated = false;
+
+    public Transform player;
+
+    private int allMonstersDefeated = 0;
+
+    public int stageNumber = 1;
+
+
+    #region Singleton
+    public static DoorManager instance;
+    private void Awake()
+    {
+        if (instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+        instance = this;
+    }
+    #endregion
+
 
     void Update()
     {
-        // 모든 몬스터가 처지면 문을 생성하고 활성화
-        if (allMonstersDefeated && !IsDoorActive())
-        {
-            ActivateDoor();
-        }
+        //MonsterRemain();
+        
+
+
+    }
+    private void Start()
+    {
+        PassThroughDoor();
+    }
+
+    public void MonsterRemain()
+    {
+        MonsterSpawn monsterSpawn = new MonsterSpawn();
+        int monsterCount = monsterSpawn.mapSpawnCount;
+
+        
     }
 
     // 모든 몬스터가 처지면 호출되는 함수
     public void AllMonstersDefeated()
     {
-        allMonstersDefeated = true;
+        allMonstersDefeated = 0;
     }
 
     // 문이 활성화되어 있는지 확인
@@ -29,61 +59,62 @@ public class DoorManager : MonoBehaviour
         return transform.childCount > 0;
     }
 
-    // 문을 활성화하는 함수
-    private void ActivateDoor()
-    {
-        foreach (GameObject map in maps)
-        {
-            if (map.activeSelf)
-            {
-                Vector3 doorPosition = CalculateDoorPosition(map);
-                GameObject newDoor = Instantiate(doorPrefab, doorPosition, Quaternion.identity, transform);
-                newDoor.SetActive(true);
-                return;
-            }
-        }
-    }
 
-    // 문의 위치를 계산하는 함수 (각 맵마다 다른 위치에 배치)
-    private Vector3 CalculateDoorPosition(GameObject map)
-    {
-        return map.transform.position;
-    }
+
 
     // 문을 통과할 때 호출되는 함수
     public void PassThroughDoor()
     {
-        // 랜덤하게 맵 선택
-        int randomIndex = Random.Range(0, maps.Length);
-        GameObject randomMap = maps[randomIndex];
+        player.position = new Vector3(0, 0, 0);
+        stageNumber++;      //다음 스테이지로 이동
 
-        // 선택된 맵을 활성화하고 나머지는 비활성화
-        foreach (GameObject map in maps)
-        {
-            map.SetActive(map == randomMap);
-        }
+        Map.instance.StageStepText(stageNumber);        //스테이지 이동 시, 맵 이미지와 상단 텍스트 변경
+        Map.instance.bossHealthPopUP(stageNumber);      //보스 스테이지의 경우(14번째 맵) 보스 체력 active
+        NextMap();
 
-        // 플레이어의 위치를 랜덤한 맵 내부의 랜덤한 위치로 이동
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
-        if (player != null)
-        {
-            Vector3 randomPosition = GetRandomPositionInMap(randomMap);
-            player.transform.position = randomPosition;
-        }
 
-        // 모든 몬스터가 처지지 않은 상태로 초기화
-        allMonstersDefeated = false;
     }
 
-    private Vector3 GetRandomPositionInMap(GameObject map)
+    public void NextMap()
     {
-        // 맵의 중앙으로부터 일정 범위 내의 랜덤한 위치를 반환
-        float rangeX = 9f; // X 축 범위
-        float rangeZ = 15f; // Z 축 범위
-        Vector3 mapCenter = map.transform.position;
-        float randomX = Random.Range(mapCenter.x - rangeX, mapCenter.x + rangeX);
-        float randomZ = Random.Range(mapCenter.z - rangeZ, mapCenter.z + rangeZ);
-        float y = mapCenter.y;
-        return new Vector3(randomX, y, randomZ);
+        if (stageNumber == 6 || stageNumber == 11)
+        {
+            Map1.SetActive(false);
+            Map2.SetActive(false);
+            Map3.SetActive(false);
+            CompensationMap.SetActive(true);
+        }
+        else if (stageNumber == 14)
+        {
+            CompensationMap.SetActive(false);
+            Map1.SetActive(false);
+            Map2.SetActive(false);
+            Map3.SetActive(false);
+            //BossMap.SetActive(true);
+        }
+        else
+        {
+            int i = Random.Range(0, 3);
+            if (i == 0)
+            {
+                Map1.SetActive(true);
+                Map2.SetActive(false);
+                Map3.SetActive(false);
+            }
+            else if (i == 1)
+            {
+                Map1.SetActive(false);
+                Map2.SetActive(true);
+                Map3.SetActive(false);
+            }
+            else if (i == 2)
+            {
+                Map1.SetActive(false);
+                Map2.SetActive(false);
+                Map3.SetActive(true);
+            }
+        }
     }
+
+
 }

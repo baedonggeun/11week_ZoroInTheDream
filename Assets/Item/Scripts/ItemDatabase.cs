@@ -19,10 +19,4 @@ public class ItemDatabase : MonoBehaviour
     public List<Item> itemDB = new List<Item>();
 
 
-
-    void Start()
-    {
-
-    }
-
 }

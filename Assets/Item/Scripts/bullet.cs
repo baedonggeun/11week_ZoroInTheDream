@@ -11,6 +11,12 @@ public class bullet : MonoBehaviour
 
     Animator animator;
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
+
     void Start()
     {
         DestoryBullet();
@@ -27,16 +33,16 @@ public class bullet : MonoBehaviour
     {
         if (collision.transform.CompareTag("Monster") || collision.transform.CompareTag("Wall"))
         {
-            //animator.SetTrigger("isHit");
+            animator.SetTrigger("isHit");
             Debug.Log("명중!");
-            Destroy(gameObject);
+            DestoryBullet();
         }
     }
 
     void DestoryBullet()
     {
         //todo : die animation 끝날때까지의 시간정도 뒤에 Destory하게 만들어야함.
-        Destroy(gameObject, 3f);
+        Destroy(gameObject, 0.4f);
     }
 
     private void MonsterHit(GameObject monster)

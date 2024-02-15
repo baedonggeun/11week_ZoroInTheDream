@@ -11,6 +11,6 @@ public class NormalItemManager : MonoBehaviour
     {
         // movementspeed = transform.GetComponentInParent<TopDownMovement>().speed;
 
-        //movementspeed += item.MovementSpeed;
+        movementspeed += item.MovementSpeed;
     }
 }

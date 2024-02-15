@@ -5,7 +5,7 @@ using UnityEngine;
 public class MonsterSpawn : MonoBehaviour
 {
     [SerializeField] private int enemyCount = 0;
-    [SerializeField] private int mapSpawnCount = 0;
+    public int mapSpawnCount = 0;
     [SerializeField] private int mapSpawnPosCount = 0;
 
     public List<GameObject> enemyPrefebs = new List<GameObject>();
@@ -22,10 +22,15 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Start()
     {
-        CreateMonster();
+        DoorManager doorManager = new DoorManager();
+        int stageNumber = doorManager.stageNumber;
+
+        mapSpawnCount = MonsterSpawnCount(stageNumber);
+
+        StartCoroutine(CreateMonster());
     }
 
-    private void CreateMonster()
+    IEnumerator CreateMonster()
     {
         for(int i = 0; i < mapSpawnPosCount; i++)
         {
@@ -34,7 +39,19 @@ public class MonsterSpawn : MonoBehaviour
             {
                 int prefabIdx = Random.Range(0, enemyPrefebs.Count);
                 GameObject enemy = Instantiate(enemyPrefebs[prefabIdx], spawnPos[posIdx].position, Quaternion.identity);
+
+                yield return new WaitForSeconds(1f);
             }
         }
+    }
+
+    public int MonsterSpawnCount(int stageNumber)
+    {
+        if(stageNumber != 6 && stageNumber != 11)
+        {
+            mapSpawnCount = stageNumber * 4 + 3;
+        }
+
+        return mapSpawnCount;
     }
 }

@@ -24,21 +24,27 @@ public class ItemManager : MonoBehaviour
 
     public GameObject itemprefeb;
     public GameObject player;
+
+    //�� Ŭ����� �⺻������ ȹ��� �޼���
     public void GetNormalItem()
     {
-        int i = Random.Range(2, 4);
-        GameObject item = Instantiate(itemprefeb);
-        item.transform.SetParent(player.transform);
-        item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+        int i = Random.Range(0, 6);
+
+        //if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
+        //{
+        //    GameObject item = Instantiate(itemprefeb);
+        //    item.transform.SetParent(player.transform);
+        //    item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+        //}
         
     }
 
     
     public void GetWeaponItem()
     {
+
         ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[0]);
 
-        //item object �߰�
         GameObject item2 = Instantiate(itemprefeb);
         item2.transform.parent = player.transform;
         item2.GetComponent<normalItem>().SetItem(ItemDatabase.instance.itemDB[0]);

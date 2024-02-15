@@ -128,6 +128,7 @@ MonoBehaviour:
   followRange: 10
   attackDelay: 1
   targetTag: Player
+  IsDead: 0
   mobRender: {fileID: 250110411817977416}
 --- !u!58 &-1378428283179303179
 CircleCollider2D:
