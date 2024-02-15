@@ -3,8 +3,7 @@ using UnityEngine;
 public class DoorManager : MonoBehaviour
 {
     public GameObject doorPrefab;
-    public GameObject[] regularRooms; // 보스 방을 제외한 일반 방
-    public GameObject bossRoom; // 보스 방
+    public GameObject[] maps;
 
     private bool allMonstersDefeated = false;
 
@@ -53,12 +52,11 @@ public class DoorManager : MonoBehaviour
     private GameObject[] GetRoomsToChooseFrom()
     {
         // 마지막 방이 보스 방이 되도록 설정
-        GameObject[] rooms = new GameObject[regularRooms.Length + 1];
-        for (int i = 0; i < regularRooms.Length; i++)
+        GameObject[] rooms = new GameObject[maps.Length + 1];
+        for (int i = 0; i < maps.Length; i++)
         {
-            rooms[i] = regularRooms[i];
+            rooms[i] = maps[i];
         }
-        rooms[rooms.Length - 1] = bossRoom;
 
         return rooms;
     }
@@ -67,8 +65,8 @@ public class DoorManager : MonoBehaviour
     public int PassThroughDoor()
     {
         // 랜덤하게 맵 선택
-        int randomIndex = Random.Range(0, regularRooms.Length);
-        GameObject randomMap = regularRooms[randomIndex];
+        int randomIndex = Random.Range(0, maps.Length);
+        GameObject randomMap = maps[randomIndex];
 
         Map mapStage = new Map();
 
@@ -77,7 +75,7 @@ public class DoorManager : MonoBehaviour
         mapStage.StageStepText(stageNumber);        //스테이지 이동 시, 맵 이미지와 상단 텍스트 변경
 
         // 선택된 맵을 활성화하고 나머지는 비활성화
-        foreach (GameObject map in regularRooms)
+        foreach (GameObject map in maps)
         {
             map.SetActive(map == randomMap);
         }
