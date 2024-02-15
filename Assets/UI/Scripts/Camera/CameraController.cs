@@ -9,7 +9,7 @@ public class CameraController : MonoBehaviour
     [SerializeField] Vector3 cameraPosition;
 
     Vector2 center = new Vector2(0.5f, 0f);
-    Vector2 mapSize = new Vector2(0f, 0f);
+    [SerializeField] Vector2 mapSize;
 
     [SerializeField] float cameraMoveSpeed;
     float height;

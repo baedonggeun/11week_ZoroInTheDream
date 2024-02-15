@@ -972,6 +972,8 @@ MonoBehaviour:
   player: {fileID: 1563212098}
   stageNumber: 1
   randomMap: 0
+  mapSize_x: 0
+  mapSize_y: 0
 --- !u!1 &253324662
 GameObject:
   m_ObjectHideFlags: 0
@@ -5205,7 +5207,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 585275209}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 1, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -30889,7 +30891,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1280658690
 Transform:
   m_ObjectHideFlags: 0
@@ -65890,7 +65892,7 @@ MonoBehaviour:
   stage_1: {fileID: 5881273395425506700}
   stage_2: {fileID: 98642898}
   stage_3: {fileID: 307905539}
-  bossHealth: {fileID: 0}
+  bossHealth: {fileID: 7116839576540130313}
   stageText: {fileID: 1456453500519983955}
   stepText: {fileID: 253324663}
   remainMonsterCount: {fileID: 3497372760297499398}

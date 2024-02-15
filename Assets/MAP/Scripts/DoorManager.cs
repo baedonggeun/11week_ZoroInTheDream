@@ -110,18 +110,21 @@ public class DoorManager : MonoBehaviour
                 Map1.SetActive(true);
                 Map2.SetActive(false);
                 Map3.SetActive(false);
+                CompensationMap.SetActive(false);
             }
             else if (randomMap == 1)
             {
                 Map1.SetActive(false);
                 Map2.SetActive(true);
                 Map3.SetActive(false);
+                CompensationMap.SetActive(false);
             }
             else if (randomMap == 2)
             {
                 Map1.SetActive(false);
                 Map2.SetActive(false);
                 Map3.SetActive(true);
+                CompensationMap.SetActive(false);
             }
         }
     }
@@ -146,9 +149,10 @@ public class DoorManager : MonoBehaviour
                 mapSize_x = 10.5f;
                 mapSize_y = 8f;
                 break;
-                //case 4:
-                //break;
-                //bossmap
+            case 4:
+                mapSize_x = 13.5f;
+                mapSize_y = 13f;
+                break;
         }
     }
 
