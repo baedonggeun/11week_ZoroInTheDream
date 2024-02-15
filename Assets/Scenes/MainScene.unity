@@ -4530,7 +4530,7 @@ MonoBehaviour:
   slimeDieClip: {fileID: 8300000, guid: 7bc27f6a24acfbb46bbf1f8dbd04a1c9, type: 3}
   uiSelectClip: {fileID: 0}
   walkClip: {fileID: 0}
-  mixer: {fileID: 0}
+  mixer: {fileID: 24100000, guid: 9ccae3eb6924e1646bed56e99fe837b6, type: 2}
   bgmSlider: {fileID: 0}
   sfxSlider: {fileID: 0}
   masterSlider: {fileID: 0}

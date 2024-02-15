@@ -21,7 +21,8 @@ public class Bullet : MonoBehaviour
     {
         if(collision.transform.CompareTag("Player") || collision.transform.CompareTag("Wall"))
         {
-            Destroy(gameObject);
+            speed = 0f;
+            Destroy(gameObject, 0.4f);
         }
     }
 
