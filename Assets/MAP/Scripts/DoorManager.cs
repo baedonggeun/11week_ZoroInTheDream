@@ -50,7 +50,7 @@ public class DoorManager : MonoBehaviour
     }
 
     // 문을 통과할 때 호출되는 함수
-    public void PassThroughDoor()
+    public int PassThroughDoor()
     {
         // 랜덤하게 맵 선택
         int randomIndex = Random.Range(0, maps.Length);
@@ -64,5 +64,7 @@ public class DoorManager : MonoBehaviour
 
         // 모든 몬스터가 처지지 않은 상태로 초기화
         allMonstersDefeated = false;
+
+        return randomIndex;
     }
 }

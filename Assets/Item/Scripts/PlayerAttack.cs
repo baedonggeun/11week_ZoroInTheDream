@@ -43,7 +43,7 @@ public class PlayerAttack : MonoBehaviour
                 SoundManager.instance.PlaySFX(soundManager.fireBallClip);
                 //Instantiate(fireball, playerPos.position, transform.rotation);
                 Instantiate(fireball, gameObject.GetComponentInParent<Transform>().position, transform.rotation);
-                //todo : weaponitem¿¡ ¸Â´Â component(scriptsÇü) Ãß°¡.
+                //todo : weaponitemï¿½ï¿½ ï¿½Â´ï¿½ component(scriptsï¿½ï¿½) ï¿½ß°ï¿½.
                 curtime = cooltime;
             }
             

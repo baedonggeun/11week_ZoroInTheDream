@@ -25,17 +25,17 @@ public class ItemManager : MonoBehaviour
     public GameObject itemprefeb;
     public GameObject player;
 
-    //¸Ê Å¬¸®¾î½Ã ±âº»¾ÆÀÌÅÛ È¹µæ¿ë ¸Þ¼­µå
+    //ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È¹ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½
     public void GetNormalItem()
     {
         int i = Random.Range(0, 6);
 
-        if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
-        {
-            GameObject item = Instantiate(itemprefeb);
-            item.transform.SetParent(player.transform);
-            item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
-        }
+        //if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
+        //{
+        //    GameObject item = Instantiate(itemprefeb);
+        //    item.transform.SetParent(player.transform);
+        //    item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+        //}
         
     }
 
