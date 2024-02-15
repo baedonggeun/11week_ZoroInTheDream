@@ -10,8 +10,6 @@ using static Unity.Burst.Intrinsics.X86.Avx;
 using UnityEditor.Build.Content;
 using UnityEngine.SceneManagement;
 
-
-
 public class CharacterStatsHandler : MonoBehaviour
 {
     [SerializeField] private CharacterStats baseStats;
@@ -54,12 +52,12 @@ public class CharacterStatsHandler : MonoBehaviour
         CurrentStates.speed = baseStats.speed + Addedspeed;
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Monster")
         {
             TakeDamage();
-            Debug.Log("�÷��̾ �¾ҽ��ϴ�");
+            Debug.Log("플레이어가 맞았습니다.");
         }
     }
 
