@@ -9,21 +9,21 @@ public class ContactMonster : MonsterController
     {
         base.Update();
 
-        Vector2 direction = DirectionToTarget();
-        float distance = DistanceToTarget();
+        //Vector2 direction = DirectionToTarget();
+        //float distance = DistanceToTarget();
 
-        if (distance < followRange)
-        {
-            if (distance <= attackRange && attackDelay == 0)
-            {
+        //if (distance < followRange)
+        //{
+        //    if (distance <= attackRange && attackDelay == 0)
+        //    {
 
-            }
-            else
-            {
-                MoveToTarget(direction);
-            }
-        }
-        MoveToTarget(direction);
+        //    }
+        //    else
+        //    {
+        //        MoveToTarget(direction);
+        //    }
+        //}
+        //MoveToTarget(direction);
         //Rotate(direction);
 
     }
@@ -31,6 +31,6 @@ public class ContactMonster : MonsterController
     private void AttackTarget()
     {
         //animator.SetTrigger("attack");
-        attackDelay = attackSpeed;
+       // attackDelay = attackSpeed;
     }
 }
