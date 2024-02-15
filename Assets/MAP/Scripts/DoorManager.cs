@@ -48,10 +48,11 @@ public class DoorManager : MonoBehaviour
     {
         return map.transform.position;
     }
+
     // 문을 통과할 때 호출되는 함수
     public void PassThroughDoor()
     {
-        // 플레이어의 위치를 랜덤한 맵 내부의 랜덤한 위치로 이동
+        // 플레이어의 위치를 맵 내부의 랜덤한 위치로 이동
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         if (player != null)
         {
