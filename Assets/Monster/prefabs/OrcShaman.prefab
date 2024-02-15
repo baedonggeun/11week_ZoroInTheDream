@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 1575722260833769060}
   m_Layer: 0
   m_Name: OrcShaman
-  m_TagString: Untagged
+  m_TagString: Monster
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,10 +206,11 @@ MonoBehaviour:
   health: 100
   speed: 2
   damage: 1
-  attackRate: 1
-  attackRange: 10
-  followRange: 15
+  attackRate: 2
+  attackRange: 6
+  followRange: 10
   attackDelay: 0
   targetTag: Player
+  IsDead: 0
   mobRender: {fileID: 271512225559251346}
   bulletPrefab: {fileID: 2618540078758907703, guid: 9c26e8696ee7cd040a29be3904278da4, type: 3}

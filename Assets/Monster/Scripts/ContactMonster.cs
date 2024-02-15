@@ -34,4 +34,6 @@ public class ContactMonster : MonsterController
         attackDelay = 0;
         // 플레이어 피격 함수
     }
+
+
 }

@@ -6,7 +6,6 @@ using UnityEngine;
 public class RangeMonster : MonsterController
 {
     public GameObject bulletPrefab;
-    public float bulletSpeed = 3f;
 
     // Update is called once per frame
     protected override void Update()
@@ -39,6 +38,5 @@ public class RangeMonster : MonsterController
     {
         attackDelay = 0f;
         GameObject bullet = Instantiate(bulletPrefab, transform.position, transform.rotation);
-        bullet.GetComponent<Rigidbody2D>().AddForce(direction * bulletSpeed * Time.deltaTime);
     }
 }
