@@ -75,6 +75,12 @@ public class DoorManager : MonoBehaviour
 
         Map.instance.StageStepText(stageNumber);        //스테이지 이동 시, 맵 이미지와 상단 텍스트 변경
         Map.instance.bossHealthPopUP(stageNumber);      //보스 스테이지의 경우(14번째 맵) 보스 체력 active
+
+        if (stageNumber == 7 || stageNumber == 12)
+        {
+            CompensationMap.SetActive(false);
+        }
+
         NextMap();
         MapSizeSetting();
 
