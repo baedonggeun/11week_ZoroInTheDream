@@ -12,18 +12,7 @@ public class normalItem : MonoBehaviour
 
     public SpriteRenderer image;
 
-    #region Singleton
-    public static normalItem instance;
-    private void Awake()
-    {
-        if (instance != null)
-        {
-            Destroy(gameObject);
-            return;
-        }
-        instance = this;
-    }
-    #endregion
+
 
 
 
