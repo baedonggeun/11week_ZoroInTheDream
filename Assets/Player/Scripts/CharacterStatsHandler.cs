@@ -86,6 +86,8 @@ public class CharacterStatsHandler : MonoBehaviour
 
     public void OnRetryButton()
     {
+        Time.timeScale = 1f;
+        
         SceneManager.LoadScene("StartScene");
     }
 }
