@@ -22,7 +22,7 @@ public class MonsterController : MonoBehaviour
 
     protected void Awake()
     {
-       // rb = GetComponent<Rigidbody2D>();
+        // rb = GetComponent<Rigidbody2D>();
         collider = GetComponent<Collider2D>();
     }
 
@@ -38,7 +38,7 @@ public class MonsterController : MonoBehaviour
     }
 
     protected void MoveToTarget(Vector2 direction)
-    {      
+    {
         transform.Translate(direction * speed * Time.deltaTime);
         // animator.SetBool("Moving", true); //animation 적용시 
     }
@@ -53,7 +53,7 @@ public class MonsterController : MonoBehaviour
     public void TakeDamage(int damageAmount) // 대미지 받는 함수
     {
         health -= damageAmount;
-        if(health <= 0)
+        if (health <= 0)
         {
             Die();
         }
@@ -74,7 +74,7 @@ public class MonsterController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Bullet"/* 플레이어 공격 태그?  */)
+        if (collision.transform.CompareTag("Bullet")/* 플레이어 공격 태그?  */)
         {
             TakeDamage(100 /* 플레이어의 공격 데미지 */);
             Debug.Log(health);
