@@ -260,67 +260,75 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemDB:
   - itemType: 1
+    Type: 
     Name: "\uB0A1\uC740 \uAC11\uC637"
     Desc: "\uB0A1\uC558\uC9C0\uB9CC \uB4E0\uB4E0\uD55C \uAC11\uC637\uC774\uB2E4."
     Atk: 0
     Def: 0
+    Hp: 1
     MovementSpeed: 0
     AttackSpeed: 0
-    Hp: 1
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
     isEquied: 0
   - itemType: 2
+    Type: 
     Name: "\uB0A1\uC740 \uC2E0\uBC1C"
     Desc: "\uC774\uB3D9\uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C0\uB294 \uD6A8\uACFC\uAC00
       \uC788\uB294 \uC2E0\uBC1C\uC774\uB2E4."
     Atk: 0
     Def: 0
+    Hp: 0
     MovementSpeed: 5
     AttackSpeed: 0
-    Hp: 0
     itemImage: {fileID: 21300000, guid: 7f7431ac970d4324ca745432e1f073f4, type: 3}
     isEquied: 0
   - itemType: 3
+    Type: 
     Name: "\uB0A1\uC740 \uC7A5\uAC11"
     Desc: "\uC774\uB3D9\uC18D\uB3C4\uAC00 \uBE68\uB77C\uC9C0\uB294 \uD6A8\uACFC\uAC00
       \uC788\uB294 \uC2E0\uBC1C\uC774\uB2E4."
     Atk: 0
     Def: 0
+    Hp: 0
     MovementSpeed: 0
     AttackSpeed: 0.01
-    Hp: 0
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
     isEquied: 0
   - itemType: 1
+    Type: 
     Name: "\uAC00\uC8FD \uAC11\uC637"
     Desc: "\uAC00\uBCCD\uACE0 \uD2BC\uD2BC\uD55C \uAC11\uC637\uC774\uB2E4."
     Atk: 0
     Def: 0
+    Hp: 2
     MovementSpeed: 0
     AttackSpeed: 0
-    Hp: 2
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
     isEquied: 0
   - itemType: 2
+    Type: 
     Name: "\uAC00\uC8FD \uC2E0\uBC1C"
     Desc: "\uAC00\uBCCD\uACE0 \uD2BC\uD2BC\uD55C \uC2E0\uBC1C\uC774\uB2E4."
     Atk: 0
     Def: 0
+    Hp: 0
     MovementSpeed: 0
     AttackSpeed: 6
-    Hp: 0
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
     isEquied: 0
   - itemType: 3
+    Type: 
     Name: "\uAC00\uC8FD \uC7A5\uAC11"
     Desc: "\uAC00\uBCCD\uACE0 \uD2BC\uD2BC\uD55C \uC7A5\uAC11\uC774\uB2E4."
     Atk: 0
     Def: 0
+    Hp: 0
     MovementSpeed: 0
     AttackSpeed: 0.02
-    Hp: 0
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
     isEquied: 0
+  itemprefeb: {fileID: 394320475544910706, guid: 5aef1984185a822418423d7efda9344f, type: 3}
+  player: {fileID: 1563212094}
 --- !u!1 &281954359
 GameObject:
   m_ObjectHideFlags: 0
@@ -3638,7 +3646,6 @@ MonoBehaviour:
   maps: []
   playerTransform: {fileID: 1563212098}
   cameraPosition: {x: 0, y: 0, z: 0}
-  center: {x: 0.5, y: 0}
   cameraMoveSpeed: 5
 --- !u!1 &616525570
 GameObject:
@@ -5859,6 +5866,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemSlot: []
+  player: {fileID: 0}
 --- !u!1 &973499192
 GameObject:
   m_ObjectHideFlags: 0
@@ -25128,8 +25136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb5e0c38f733bbf45a6a12c1c5b5b03f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startDashTime: 1
   dashSpeed: 10
+  dashTime: 0.5
 --- !u!114 &1563212104
 MonoBehaviour:
   m_ObjectHideFlags: 0
