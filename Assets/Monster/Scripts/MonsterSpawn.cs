@@ -23,18 +23,13 @@ public class MonsterSpawn : MonoBehaviour
 
     private void Start()
     {
-        DoorManager doorManager = new DoorManager();
+        DoorManager doorManager = DoorManager.instance;
         int stageNumber = doorManager.stageNumber;
 
         mapSpawnCount = MonsterSpawnCount(stageNumber);
 
         StartCoroutine(CreateMonster());
     }
-
-    //private void Update()
-    //{
-    //    if()
-    //}
 
     IEnumerator CreateMonster()
     {
