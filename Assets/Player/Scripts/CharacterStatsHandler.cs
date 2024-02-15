@@ -72,10 +72,9 @@ public class CharacterStatsHandler : MonoBehaviour
             CurrentStates.maxHealth -= 1;
             Health.fillAmount -= 0.2f;
 
-            if(CurrentStates.maxHealth == 0)
+            if(CurrentStates.maxHealth <= 0)
             {
                 Die();
-                
             }
         }
     }

@@ -5,13 +5,16 @@ using UnityEngine.PlayerLoop;
 
 public class MonsterSpawn : MonoBehaviour
 {
-    [SerializeField] private int enemyCount = 0;
-    public int mapSpawnCount = 0;
+    [HideInInspector] public int mapSpawnCount = 0;
     [SerializeField] private int mapSpawnPosCount = 5;
 
     public List<GameObject> enemyPrefebs = new List<GameObject>();
     [SerializeField] private Transform spawnPosRoot;
     private List<Transform> spawnPos = new List<Transform>();
+
+    int monsterStage = 0;
+
+    
 
     private void Awake()
     {
@@ -21,14 +24,30 @@ public class MonsterSpawn : MonoBehaviour
         }
     }
 
-    private void Start()
+    private void Update()
+    {
+        StartCoroutine(MonsterSpawnMethod());
+    }
+
+    IEnumerator MonsterSpawnMethod()
     {
         DoorManager doorManager = DoorManager.instance;
-        int stageNumber = doorManager.stageNumber;
 
-        mapSpawnCount = MonsterSpawnCount(stageNumber);
+        if(monsterStage != doorManager.stageNumber)
+        {
+            monsterStage = doorManager.stageNumber;
 
-        StartCoroutine(CreateMonster());
+            mapSpawnCount = MonsterSpawnCount(monsterStage);
+
+            StartCoroutine(CreateMonster());
+
+            yield break;
+        }
+        else
+        {
+            yield break;
+        }
+
     }
 
     IEnumerator CreateMonster()
@@ -49,7 +68,7 @@ public class MonsterSpawn : MonoBehaviour
     {
         if(stageNumber != 6 && stageNumber != 11)
         {
-            mapSpawnCount = stageNumber * 4 + 3;
+            mapSpawnCount = stageNumber * 3 + 2;
         }
 
         return mapSpawnCount;

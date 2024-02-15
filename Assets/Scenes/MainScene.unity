@@ -585,7 +585,7 @@ MonoBehaviour:
     Desc: "\uB0A1\uC558\uC9C0\uB9CC \uB4E0\uB4E0\uD55C \uAC11\uC637\uC774\uB2E4."
     Atk: 0
     Def: 0
-    Hp: 1
+    Hp: 0
     MovementSpeed: 0
     AttackSpeed: 0
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
@@ -620,7 +620,7 @@ MonoBehaviour:
     Desc: "\uAC00\uBCCD\uACE0 \uD2BC\uD2BC\uD55C \uAC11\uC637\uC774\uB2E4."
     Atk: 0
     Def: 0
-    Hp: 2
+    Hp: 0
     MovementSpeed: 0
     AttackSpeed: 0
     itemImage: {fileID: 21300000, guid: 5a60ef1d6068bfc4b8ac5efd3f6a3c28, type: 3}
