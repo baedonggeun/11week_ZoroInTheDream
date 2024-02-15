@@ -67,8 +67,8 @@ public class DoorManager : MonoBehaviour
     public int PassThroughDoor()
     {
         // 랜덤하게 맵 선택
-        int randomIndex = Random.Range(0, maps.Length);
-        GameObject randomMap = maps[randomIndex];
+        int randomIndex = Random.Range(0, regularRooms.Length);
+        GameObject randomMap = regularRooms[randomIndex];
 
         Map mapStage = new Map();
 
@@ -77,7 +77,7 @@ public class DoorManager : MonoBehaviour
         mapStage.StageStepText(stageNumber);        //스테이지 이동 시, 맵 이미지와 상단 텍스트 변경
 
         // 선택된 맵을 활성화하고 나머지는 비활성화
-        foreach (GameObject map in maps)
+        foreach (GameObject map in regularRooms)
         {
             map.SetActive(map == randomMap);
         }

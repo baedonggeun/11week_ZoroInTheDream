@@ -151,6 +151,22 @@ PrefabInstance:
       propertyPath: maps.Array.data[2]
       value: 
       objectReference: {fileID: 335712228}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: doorPrefab
+      value: 
+      objectReference: {fileID: 22464212}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1768091872}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[1]
+      value: 
+      objectReference: {fileID: 980789719}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[2]
+      value: 
+      objectReference: {fileID: 335712228}
     - target: {fileID: 1647591377292838048, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
       propertyPath: m_Name
       value: Door (2)
@@ -4213,6 +4229,22 @@ PrefabInstance:
       propertyPath: maps.Array.data[2]
       value: 
       objectReference: {fileID: 335712228}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: doorPrefab
+      value: 
+      objectReference: {fileID: 1234574958}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1768091872}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[1]
+      value: 
+      objectReference: {fileID: 980789719}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[2]
+      value: 
+      objectReference: {fileID: 335712228}
     - target: {fileID: 1647591377292838048, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
       propertyPath: m_Name
       value: Door
@@ -4925,7 +4957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doorPrefab: {fileID: 1647591377292838048, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
   maps: []
-  stageNumber: 0
   playerTransform: {fileID: 1563212098}
   cameraPosition: {x: 0, y: 0, z: 0}
   cameraMoveSpeed: 5
@@ -25186,6 +25217,22 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 980789719}
     - target: {fileID: 179240921045187209, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[2]
+      value: 
+      objectReference: {fileID: 335712228}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: doorPrefab
+      value: 
+      objectReference: {fileID: 1131236236}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[0]
+      value: 
+      objectReference: {fileID: 1768091872}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
+      propertyPath: maps.Array.data[1]
+      value: 
+      objectReference: {fileID: 980789719}
+    - target: {fileID: 1411040844768271715, guid: bfe2c349347c75f489d78d526dd7ed16, type: 3}
       propertyPath: maps.Array.data[2]
       value: 
       objectReference: {fileID: 335712228}
@@ -55157,12 +55204,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   trsMenu: {fileID: 3552347904119691069}
-  stage_1: {fileID: 5881273395425506700}
-  stage_2: {fileID: 98642898}
-  stage_3: {fileID: 307905539}
-  stageText: {fileID: 1456453500519983955}
-  stepText: {fileID: 253324663}
-  remainMonsterCount: {fileID: 3497372760297499398}
 --- !u!222 &4322420629247084999
 CanvasRenderer:
   m_ObjectHideFlags: 0
