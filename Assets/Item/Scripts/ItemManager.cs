@@ -28,7 +28,7 @@ public class ItemManager : MonoBehaviour
     //맵 클리어시 기본아이템 획득용 메서드
     public void GetNormalItem()
     {
-        int i = Random.Range(2, 4);
+        int i = Random.Range(0, 6);
 
         if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
         {

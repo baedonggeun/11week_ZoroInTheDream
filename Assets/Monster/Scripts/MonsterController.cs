@@ -72,11 +72,12 @@ public class MonsterController : MonoBehaviour
         Destroy(gameObject, 1);
     }
 
-    private void OnTriggerEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "Bullet"/* 플레이어 공격 태그?  */)
+        if (collision.gameObject.tag == "Bullet"/* 플레이어 공격 태그?  */)
         {
             TakeDamage(100 /* 플레이어의 공격 데미지 */);
+            Debug.Log(health);
         }
     }
 }
