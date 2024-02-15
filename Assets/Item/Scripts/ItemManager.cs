@@ -30,12 +30,12 @@ public class ItemManager : MonoBehaviour
     {
         int i = Random.Range(0, 6);
 
-        //if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
-        //{
-        //    GameObject item = Instantiate(itemprefeb);
-        //    item.transform.SetParent(player.transform);
-        //    item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
-        //}
+        if (ItemSlot.instance.AddItemSlot(ItemDatabase.instance.itemDB[i]))
+        {
+            GameObject item = Instantiate(itemprefeb);
+            item.transform.SetParent(player.transform);
+            item.GetComponentInChildren<normalItem>().SetItem(ItemDatabase.instance.itemDB[i]);
+        }
         
     }
 
