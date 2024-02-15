@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BossMonster : MonoBehaviour
 {
@@ -14,6 +15,8 @@ public class BossMonster : MonoBehaviour
     private Rigidbody2D rb;
 
     private Collider2D collider;
+
+    [SerializeField] private Image bossHealthImage;
 
     private void Awake()
     {
@@ -106,11 +109,14 @@ public class BossMonster : MonoBehaviour
 
     public void TakeDamage(int damageAmount) // 대미지 받는 함수
     {
+
         health -= damageAmount;
         if (health <= 0)
         {
             Die();
         }
+
+        bossHealthImage.fillAmount -= 0.1f;
     }
 
     public void Die() //  ㅁ
