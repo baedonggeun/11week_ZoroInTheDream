@@ -13,7 +13,7 @@ public class DoorManager : MonoBehaviour
 
     void Update()
     {
-        MonsterRemain();
+        //MonsterRemain();
 
         // 모든 몬스터가 처지면 문을 생성하고 활성화
         if (allMonstersDefeated <= 0 && !IsDoorActive())
@@ -22,13 +22,15 @@ public class DoorManager : MonoBehaviour
         }
     }
 
-    public void MonsterRemain()
-    {
-        MonsterSpawn monsterSpawn = new MonsterSpawn();
-        int monsterCount = monsterSpawn.mapSpawnCount;
+    //TODO
+    //public void MonsterRemain()
+    //{
+    //    MonsterSpawn monsterSpawn = new MonsterSpawn();
+    //    int monsterCount = monsterSpawn.mapSpawnCount;
 
-        remainMonsterCount.text = monsterCount.ToString();
-    }
+        
+    //    remainMonsterCount.text = monsterCount.ToString();
+    //}
 
     // 모든 몬스터가 처지면 호출되는 함수
     public void AllMonstersDefeated()
