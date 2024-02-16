@@ -11,7 +11,12 @@ public class normalItem : MonoBehaviour
     public Item item;
 
     public SpriteRenderer image;
+    Animator animator;
     //Player
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+    }
     private void Start()
     {
 
