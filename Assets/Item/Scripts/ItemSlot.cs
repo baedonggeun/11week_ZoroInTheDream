@@ -17,19 +17,23 @@ public class ItemSlot : MonoBehaviour
     }
     #endregion
 
+    //player가 장착되는 아이템들의 List
     public List<Item> itemSlot = new List<Item>();
 
     private int slotCount;
+    public GameObject player;
 
-    public void AddItemSlot(Item _item)
+    public bool AddItemSlot(Item _item)
     {
         if (slotCount < 5)
         {
             itemSlot.Add(_item);
             Debug.Log("아이템을 장착했습니다.");
-            slotCount = itemSlot.Count;
+            slotCount++;
+            return true;
         }
         Debug.Log("아이템 슬롯이 부족합니다.");
+        return false;
     }
 
 
